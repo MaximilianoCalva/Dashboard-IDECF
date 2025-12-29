@@ -1,0 +1,69 @@
+# Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Node modules (si se usa algún preprocesador)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Archivos de configuración local
+.env
+.env.local
+.env.*.local
+config.local.js
+
+# Archivos compilados o generados
+dist/
+build/
+*.min.css
+*.min.js
+
+# Archivos de prueba
+test/
+tests/
+*.test.html
+*.spec.html
+
+# Documentación temporal
+docs/temp/
+.docusaurus/
+
+# Archivos de sistema Mac
+__MACOSX/
+
+# Archivos sensibles (no subir)
+# credentials.json
+# api-keys.txt
+# passwords.txt

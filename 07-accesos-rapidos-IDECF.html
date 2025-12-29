@@ -1,0 +1,199 @@
+<div class="accesos-container">
+    <div class="accesos-header">
+        <h2 class="titulo-principal">⚡ Accesos Rápidos</h2>
+        <p class="descripcion">Accede directamente a las herramientas principales del instituto</p>
+    </div>
+
+    <div class="accesos-grid">
+        <div class="acceso-card correo">
+            <div class="acceso-icono">📧</div>
+            <h3 class="acceso-titulo">Correo Electrónico</h3>
+            <p class="acceso-descripcion">¿Quieres revisar tu correo? Entra al siguiente botón para revisar tu bandeja
+                de entrada</p>
+            <a href="https://fernandosanchezinstituto.com.mx/webmail" class="acceso-btn" target="_blank">
+                📬 Ir a bandeja de entrada
+            </a>
+        </div>
+
+        <div class="acceso-card examenes">
+            <div class="acceso-icono">📝</div>
+            <h3 class="acceso-titulo">Registro de Exámenes</h3>
+            <p class="acceso-descripcion">Visualiza y gestiona el registro de exámenes de los alumnos de manera
+                organizada</p>
+            <a href="https://docs.google.com/spreadsheets/d/1OIKbpsUz1PxOQ4cyiSBbWNINea8yFWfp3wbpOV20Z9k/edit?usp=sharing"
+                class="acceso-btn" target="_blank">
+                📊 Selecciona aquí para visualizar
+            </a>
+        </div>
+
+        <div class="acceso-card panel">
+            <div class="acceso-icono">🔧</div>
+            <h3 class="acceso-titulo">Panel de Administración</h3>
+            <p class="acceso-descripcion">¿Quieres ir al panel de plataforma? Entra al siguiente botón para acceder al
+                panel administrativo</p>
+            <a href="https://fernandosanchezinstituto.com.mx/wp-admin" class="acceso-btn" target="_blank">
+                ⚙️ Panel de plataforma
+            </a>
+        </div>
+    </div>
+
+    <div class="accesos-footer">
+        <p class="nota-footer">
+            💜 Accede rápidamente a las herramientas que necesitas para gestionar el instituto
+        </p>
+    </div>
+</div>
+
+<style>
+    .accesos-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(109, 7, 87, 0.1);
+    }
+
+    .accesos-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .titulo-principal {
+        color: #6D0757;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .descripcion {
+        color: #666;
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .accesos-grid {
+        display: grid;
+        /* Ajuste para que quepan 3 columnas si hay espacio */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .acceso-card {
+        background: linear-gradient(135deg, #fdfbff 0%, #f9f7fc 100%);
+        border-radius: 15px;
+        padding: 35px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .acceso-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(109, 7, 87, 0.2);
+    }
+
+    /* Colores específicos por tarjeta - tonos púrpura */
+    .acceso-card.correo {
+        border-color: #6D0757;
+    }
+
+    .acceso-card.correo:hover {
+        background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+
+    .acceso-card.examenes {
+        border-color: #8E0970;
+    }
+
+    .acceso-card.examenes:hover {
+        background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+
+    .acceso-card.panel {
+        border-color: #A855F7;
+    }
+
+    .acceso-card.panel:hover {
+        background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+
+    .acceso-icono {
+        font-size: 4em;
+        margin-bottom: 20px;
+    }
+
+    .acceso-titulo {
+        color: #6D0757;
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .acceso-descripcion {
+        color: #555;
+        font-size: 1.05em;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+
+    .acceso-btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: #6D0757;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(109, 7, 87, 0.3);
+    }
+
+    .acceso-btn:hover {
+        background: #8E0970;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(109, 7, 87, 0.5);
+        color: white !important;
+    }
+
+    .accesos-footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #f0e6f7;
+        text-align: center;
+    }
+
+    .nota-footer {
+        color: #6D0757;
+        font-size: 1.1em;
+        line-height: 1.6;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .accesos-container {
+            padding: 25px;
+        }
+
+        .titulo-principal {
+            font-size: 1.8em;
+        }
+
+        .accesos-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .acceso-card {
+            padding: 30px;
+        }
+    }
+</style>

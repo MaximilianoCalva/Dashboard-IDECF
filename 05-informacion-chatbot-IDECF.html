@@ -1,0 +1,222 @@
+<div class="chatbot-recursos-container">
+    <div class="recursos-header">
+        <div class="brand-badge">IDECF ACADÉMICO</div>
+        <h2 class="titulo-principal">🤖 Chatbot IDECF - Recursos</h2>
+        <p class="descripcion">Accede a las herramientas de inteligencia artificial y documentación del Instituto de
+            Constelaciones Familiares</p>
+    </div>
+
+    <div class="recursos-grid">
+        <div class="recurso-card chatbot">
+            <div class="recurso-icono">💬</div>
+            <h3 class="recurso-titulo">Chatbot IDECF</h3>
+            <p class="recurso-descripcion">Asistente virtual especializado en Constelaciones Familiares y Bioenergética.
+            </p>
+            <a href="https://n8n.srv1017270.hstgr.cloud/webhook/a6d7588e-31e7-4733-9e29-7e4aeedd7e76/chat"
+                class="recurso-btn" target="_blank">
+                Abrir Chatbot
+            </a>
+        </div>
+
+        <div class="recurso-card mejoras">
+            <div class="recurso-icono">📈</div>
+            <h3 class="recurso-titulo">Registro de Mejoras</h3>
+            <p class="recurso-descripcion">Hoja de ruta con las actualizaciones, correcciones y nuevas funciones del
+                bot.</p>
+            <a href="https://docs.google.com/spreadsheets/d/12MQmOKGP3afLE1RJLJCqFzu3PZqUFqmPjw14eTXcBQ8/edit?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Mejoras
+            </a>
+        </div>
+
+        <div class="recurso-card memoria">
+            <div class="recurso-icono">🧠</div>
+            <h3 class="recurso-titulo">Base de Conocimiento</h3>
+            <p class="recurso-descripcion">Documentación estructural con la filosofía y saberes base de IDECF.</p>
+            <a href="https://docs.google.com/document/d/12w-j2bguls3Hu64I2shj7IsRnVkGrFGyzzywvhLLhrw/edit?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Memorias
+            </a>
+        </div>
+
+        <div class="recurso-card memoria-activa">
+            <div class="recurso-icono">⚡</div>
+            <h3 class="recurso-titulo">Memoria Activa</h3>
+            <p class="recurso-descripcion">Archivo de procesamiento de datos actualmente implementado en tiempo real.
+            </p>
+            <a href="https://drive.google.com/file/d/1a2cKJHAqWh2DS9nHjMyfNbnQlJqFRatT/view?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Memoria Activa
+            </a>
+        </div>
+    </div>
+
+    <div class="recursos-footer">
+        <p class="nota-footer">
+            💜 Recursos exclusivos para la optimización de la experiencia académica sistémica en IDECF.
+        </p>
+    </div>
+</div>
+
+<style>
+    :root {
+        --morado-idecf: #6D0757;
+        --morado-hover: #8E0970;
+        --fondo-lila: #fdfbff;
+        --borde-lila: #f0e6f7;
+    }
+
+    .chatbot-recursos-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .brand-badge {
+        background: #f3e5f5;
+        color: var(--morado-idecf);
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .recursos-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .titulo-principal {
+        color: var(--morado-idecf);
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        font-weight: 800;
+    }
+
+    .descripcion {
+        color: #666;
+        font-size: 1.1em;
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .recursos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .recurso-card {
+        background: var(--fondo-lila);
+        border-radius: 20px;
+        padding: 35px 25px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid #f0e6f7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .recurso-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(118, 75, 162, 0.12);
+        border-color: var(--morado-idecf);
+    }
+
+    .recurso-icono {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+    }
+
+    .recurso-titulo {
+        color: var(--morado-idecf);
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .recurso-descripcion {
+        color: #555;
+        font-size: 0.95em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+
+    .recurso-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: var(--morado-idecf);
+        color: white !important;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .recurso-btn:hover {
+        background: var(--morado-hover);
+        box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+    }
+
+    /* Colores de acento sutiles para cada tarjeta */
+    .chatbot {
+        border-top: 5px solid #6D0757;
+    }
+
+    .mejoras {
+        border-top: 5px solid #8E0970;
+    }
+
+    .memoria {
+        border-top: 5px solid #A855F7;
+    }
+
+    .memoria-activa {
+        border-top: 5px solid #C084FC;
+    }
+
+    .recursos-footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+
+    .nota-footer {
+        color: var(--morado-idecf);
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .chatbot-recursos-container {
+            padding: 25px;
+        }
+
+        .titulo-principal {
+            font-size: 1.7em;
+        }
+
+        .recursos-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
