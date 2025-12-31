@@ -1,0 +1,73 @@
+<style>
+    .idecf-logout-form {
+        background: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(109, 7, 87, 0.15);
+        max-width: 450px;
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .idecf-logout-form .login-header {
+        background: linear-gradient(135deg, #6D0757 0%, #8E0970 100%);
+        padding: 40px 30px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-header p {
+        font-size: 14px;
+        opacity: 0.9;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-body {
+        padding: 40px 30px;
+    }
+
+    .idecf-logout-form .login-instructions {
+        text-align: center;
+        color: #6b7280;
+        margin-bottom: 24px;
+        font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+        .idecf-logout-form {
+            border-radius: 12px;
+        }
+
+        .idecf-logout-form .login-header {
+            padding: 30px 20px;
+        }
+
+        .idecf-logout-form .login-header h1 {
+            font-size: 24px;
+        }
+
+        .idecf-logout-form .login-body {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<div class="idecf-logout-form">
+    <div class="login-header">
+        <h1>IDECF</h1>
+        <p>Instituto Internacional de Constelaciones Familiares</p>
+    </div>
+    <div class="login-body">
+        <p class="login-instructions">
+            Ingresa tu correo y contraseña para acceder a tu dashboard
+        </p>
+        [profilepress-login id="1"]
+    </div>
+</div>

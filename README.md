@@ -1,195 +1,132 @@
-# Dashboard Sección Inicio - IDECF
+# IDECF - Instituto Internacional de Constelaciones Familiares
 
-## 📋 Descripción
+## Información Institucional
 
-Colección de componentes HTML para la sección de inicio del dashboard de **IDECF (Instituto de Educación en Ciencias Forenses)**. Estos componentes están diseñados para ser integrados en WordPress usando widgets HTML personalizados.
+**Nombre Completo:** Instituto Internacional de Constelaciones Familiares  
+**Acrónimo:** IDECF  
+**Sitio Web:** https://idecf.com  
+**Panel:** https://panel.idecf.com
 
-## 🎨 Colores Institucionales
+## SEO y Metadata
 
-IDECF utiliza un esquema de colores púrpura magenta que representa profesionalismo, precisión y ciencia forense:
+### Dashboard (Panel de Estudiantes)
+**Título del Sitio:** IDECF - Mi Dashboard | Plataforma de Constelaciones Familiares  
+**Descripción Corta:** Accede a tu plataforma de aprendizaje en Constelaciones Familiares. Consulta tus diplomados, talleres, certificados y avanza en tu formación terapéutica.
 
-### Paleta Principal
-- **Púrpura Magenta**: `#6D0757` - Color primario institucional
-- **Blanco**: `#FFFFFF` - Color secundario institucional
-- **Púrpura Claro**: `#8E0970` - Estados hover e interactivos
-- **Púrpura Suave**: `#A855F7` - Acentos adicionales
+## Colores Institucionales
 
-### Variables CSS
-```css
-:root {
-  --idecf-primary: #6D0757;
-  --idecf-secondary: #FFFFFF;
-  --idecf-hover: #8E0970;
-  --idecf-accent: #A855F7;
-}
-```
+### Paleta de Colores
+- **Morado Primario:** `#6D0757`
+- **Morado Hover:** `#8E0970`
 
-## 📁 Estructura de Archivos
+### Colores de Sistema
+- **Blanco:** `#FFFFFF`
+- **Gris Claro:** `#F5F5F5`
+- **Éxito (Verde):** `#10b981`
+- **Peligro (Rojo):** `#ef4444`
 
-```
-Dashboard-seccion-inicio-IDECF/
-├── 01-dashboard-inicio-IDECF.html          # Cápsula de navegación "Dashboard > Inicio"
-├── 02-bienvenida-IDECF.html                # Mensaje de bienvenida personalizado
-├── 03-reglamento-IDECF.html                # Visor de reglamento institucional
-├── 04-plataforma-inactiva-IDECF.html       # Aviso de cuenta inactiva
-├── 05-informacion-chatbot-IDECF.html       # Información sobre recursos del chatbot
-├── 06-oferta-activa-IDECF.html             # Widget de oferta educativa activa
-├── 07-accesos-rapidos-IDECF.html           # Enlaces de acceso rápido
-├── colores-institucionales-IDECF.md        # Guía de colores institucionales
-└── README.md                                # Este archivo
-```
+### Bordes y Sombras
+- **Border Color:** `#f0e6ee`
+- **Box Shadow:** `0 2px 8px rgba(109, 7, 87, 0.06)`
 
-## 🚀 Componentes
+## Contacto
 
-### 1. Dashboard Inicio (01)
-Cápsula compacta de navegación que muestra "IDECF | Plataforma | DASHBOARD" con animación de flecha.
+**WhatsApp Soporte:** +52 1 33 2935 7723  
+**URL WhatsApp:** https://wa.me/5213329357723  
+**Canal WhatsApp:** https://whatsapp.com/channel/0029VbAe4fl2P59rdcs99r44
 
-**Características:**
-- Diseño tipo píldora con bordes extra redondeados
-- Color púrpura magenta institucional
-- Animación minimalista
-- Responsive para móviles
+## Redes Sociales
 
-### 2. Bienvenida (02)
-Mensaje de bienvenida personalizado para estudiantes.
+**Facebook:** https://facebook.com/203152456224733  
+**Instagram:** https://instagram.com/constelacionesfamidecf  
+**TikTok:** https://www.tiktok.com/@constelacionesfamidecf  
+**YouTube:** https://www.youtube.com/channel/UCXZ3SI7AcpwRCjvWm9y7jzQ
 
-### 3. Reglamento (03)
-Visor de reglamento institucional con navegación por páginas.
+## URLs del Panel
 
-**Características:**
-- Navegación entre páginas del reglamento
-- Botones con color púrpura institucional
-- Diseño limpio y profesional
+- **Mi Cuenta:** https://panel.idecf.com/mi-cuenta/
+- **Iniciar Sesión:** https://panel.idecf.com/
+- **Logout:** https://panel.idecf.com/wp-login.php?action=logout&redirect_to=https%3A%2F%2Fpanel.idecf.com
 
-### 4. Plataforma Inactiva (04)
-Aviso informativo sobre posibles razones de cuenta inactiva.
+## Recursos Visuales
 
-**Características:**
-- Diseño de tarjeta con borde superior púrpura
-- Icono circular con fondo púrpura
-- Secciones para "Baja Temporal" y "Adeudo en Mensualidad"
-- Footer con fondo púrpura institucional
-- Efecto hover en tarjetas
+### Logo
+**URL:** https://idecf.com/wp-content/uploads/2024/02/IDECF-Logo-blanco.png
 
-### 5. Información Chatbot (05)
-Información sobre los recursos disponibles del chatbot IA.
+### Dimensiones del Logo
+- **Desktop:** 30px altura
+- **Mobile:** 25px altura
+- **Max Width:** 150px
 
-**Características:**
-- Tarjetas con bordes superiores en tonos púrpura
-- Variables CSS personalizadas
-- Diseño modular y escalable
-- Fondo lila suave
+## Componentes del Dashboard
 
-### 6. Oferta Activa (06)
-Widget para mostrar ofertas educativas activas.
+### Headers
+- `Header/header-logged-in-IDECF.html` - Header para usuarios autenticados
+- `Header/header-logged-out-IDECF.html` - Header para usuarios no autenticados
 
-**Características:**
-- Sistema de variables CSS con colores institucionales
-- Diseño adaptable
-- Estados hover optimizados
+### Especificaciones del Header
+- **Padding:** 3px 10px
+- **Ancho:** 100% (full width)
+- **Altura Mínima:** 50px
+- **Font Size Brand:** 18px (desktop), 16px (mobile)
+- **Font Size Subtitle:** 9px (desktop), 7-8px (mobile)
+- **Color Brand:** Morado primario (#6D0757)
 
-### 7. Accesos Rápidos (07)
-Enlaces rápidos a recursos importantes de la plataforma.
+## Notas de Diseño
 
-## 💻 Uso en WordPress
+- Los headers usan texto "IDECF" en lugar de logo
+- Color morado institucional para branding
+- Diseño responsive con breakpoints en 768px y 480px
+- Botones compactos con iconos de 14px
+- Mismo tamaño y estructura que IDEBIO e IDEMAB
 
-### Integración con Elementor
+## Última Actualización
 
-1. **Agregar Widget HTML**
-   - Arrastra un widget "HTML" a tu sección
-   - Copia el contenido completo del archivo `.html`
-   - Pega en el editor HTML del widget
+Fecha: 2025-12-30  
+Versión: 1.0
 
-2. **Configuración Recomendada**
-   - Ancho: 100% del contenedor
-   - Padding: Ajustar según necesidad
-   - Margen: 8-10px superior e inferior
+## Archivos de Acceso al Dashboard
 
-### Integración con Bloques de WordPress
+### Carpeta: `Acceso a dashboard/`
 
-1. **Bloque HTML Personalizado**
-   - Añade un bloque "HTML personalizado"
-   - Pega el código del componente
-   - Previsualiza y publica
+**Para usuarios autenticados (logged-in):**
+- `login-idecf-snippet.html` - Página de bienvenida con botón "Ir al Dashboard"
+  - Redirige a: `https://panel.idecf.com/mi-cuenta/`
 
-## 🎯 Características Técnicas
+**Para usuarios NO autenticados (logged-out):**
+- `logout-idecf-snippet.html` - Formulario de inicio de sesión
+  - Contiene shortcode: `[profilepress-login id="1"]`
+  - Incluye instrucciones para el usuario
 
-### Responsive Design
-- Todos los componentes son responsive
-- Breakpoint móvil: `max-width: 600px`
-- Ajustes automáticos de tamaño y espaciado
+**Uso en WordPress:**
+- Copiar y pegar el contenido completo en un widget HTML de Elementor
+- Los snippets no afectan el diseño de la página existente
+- Usan clases CSS únicas para evitar conflictos
 
-### Tipografía
-```css
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-```
+## Recursos Adicionales (Extras)
 
-### Accesibilidad
-- Contraste de colores optimizado (WCAG 2.1)
-- Texto blanco sobre `#6D0757`: Ratio 8.5:1 ✅ (excelente para todo tipo de texto)
-- Texto blanco sobre `#8E0970`: Ratio 6.2:1 ✅ (muy bueno)
-- Estructura semántica HTML5
+### Carpeta: `Extras/`
 
-## 🔧 Personalización
+**Archivo principal:** `extras-grid-idecf.html`
 
-### Cambiar Colores
-Los colores están centralizados en variables CSS. Para personalizarlos:
+Grid de recursos adicionales con 3 secciones organizadas por programa:
 
-```css
-:root {
-  --idecf-primary: #TU_COLOR_PRIMARIO;
-  --idecf-secondary: #TU_COLOR_SECUNDARIO;
-  --idecf-hover: #TU_COLOR_HOVER;
-}
-```
+1. **📚 Biblioteca DCF** (Constelaciones Familiares)
+   - URL: https://panel.idecf.com/biblioteca-dcf/
+   - Biblioteca del Diplomado en Constelaciones Familiares
+   - Badge: "Constelaciones Familiares"
 
-### Ajustar Tamaños
-Modifica las variables de tamaño en cada componente:
+2. **🎥 Videoteca**
+   - URL: https://panel.idecf.com/videoteca/
+   - Biblioteca de videos educativos general
 
-```css
-.component {
-  font-size: 16px;  /* Ajustar según necesidad */
-  padding: 4px 18px; /* Ajustar espaciado */
-}
-```
+3. **📖 Biblioteca DTG** (Terapia Gestalt)
+   - URL: https://panel.idecf.com/biblioteca-dtg/
+   - Biblioteca del Diplomado en Terapia Gestalt
+   - Badge: "Terapia Gestalt"
 
-## 📱 Compatibilidad
-
-- ✅ Chrome/Edge (últimas versiones)
-- ✅ Firefox (últimas versiones)
-- ✅ Safari (últimas versiones)
-- ✅ Dispositivos móviles iOS/Android
-- ✅ WordPress 5.0+
-- ✅ Elementor 3.0+
-
-## 📝 Notas de Desarrollo
-
-### Versión
-- **Actual**: 1.0.0
-- **Última actualización**: 28 de diciembre de 2025
-- **Commit inicial**: 56e10f8
-
-### Cambios Recientes
-- ✅ Aplicación de colores institucionales oficiales (#6D0757)
-- ✅ Actualización de variables CSS
-- ✅ Mejora de accesibilidad y contraste (ratio 8.5:1)
-- ✅ Optimización de estados hover
-- ✅ Padding estandarizado a 10px en todos los componentes
-- ✅ Margins eliminados para mejor integración con WordPress
-- ✅ 7 componentes HTML completamente funcionales
-
-## 🤝 Contribución
-
-Para mantener la consistencia visual:
-1. Usa siempre los colores institucionales definidos
-2. Mantén la estructura de archivos
-3. Prueba en diferentes navegadores
-4. Verifica la accesibilidad
-
-## 📄 Licencia
-
-Uso interno de IDECF - Instituto de Educación en Ciencias Forenses
-
----
-
-**Desarrollado para IDECF** | Última actualización: Diciembre 2025
+### Diseño de Extras
+- **Colores**: Gradiente morado IDECF (#6D0757 a #8E0970)
+- **Layout**: Grid responsive (3 columnas desktop, 1 mobile)
+- **Badges**: Identificadores de programa en cada tarjeta
+- **Interactividad**: Hover effects con elevación y sombra

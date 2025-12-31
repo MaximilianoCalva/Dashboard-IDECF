@@ -1,0 +1,100 @@
+<style>
+    .idecf-extras {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .idecf-extras h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #6D0757;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .extras-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .extra-card {
+        background: linear-gradient(135deg, #6D0757 0%, #8E0970 100%);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(109, 7, 87, 0.2);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .extra-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 16px rgba(109, 7, 87, 0.3);
+    }
+
+    .card-icon {
+        font-size: 40px;
+        flex-shrink: 0;
+    }
+
+    .card-content {
+        flex: 1;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #FFFFFF;
+    }
+
+    .card-description {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .extra-card {
+            padding: 15px;
+            gap: 15px;
+        }
+
+        .card-icon {
+            font-size: 32px;
+        }
+
+        .card-title {
+            font-size: 16px;
+        }
+
+        .card-description {
+            font-size: 12px;
+        }
+    }
+</style>
+
+<div class="idecf-extras">
+    <h2>📖 Diplomado en Terapia Gestalt</h2>
+
+    <div class="extras-grid">
+        <!-- Biblioteca DTG -->
+        <a href="https://panel.idecf.com/biblioteca-dtg/" target="_blank" class="extra-card">
+            <div class="card-icon">📖</div>
+            <div class="card-content">
+                <h3 class="card-title">Biblioteca DTG</h3>
+                <p class="card-description">Biblioteca del Diplomado en Terapia Gestalt</p>
+            </div>
+        </a>
+    </div>
+</div>
