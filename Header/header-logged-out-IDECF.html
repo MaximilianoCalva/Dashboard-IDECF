@@ -1,0 +1,144 @@
+<!-- HEADER IDECF - LOGGED OUT (Usuario no autenticado) -->
+<div class="idecf-header-logged-out">
+    <div class="header-container">
+        <div class="header-brand">
+            <span class="brand-text">IDECF</span>
+            <span class="brand-subtitle">Instituto Internacional de Constelaciones Familiares</span>
+        </div>
+
+        <div class="header-actions">
+            <a href="https://panel.idecf.com" class="btn-login">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
+                </svg>
+                <span>Acceso a tu diplomado</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Variables de colores IDECF */
+    .idecf-header-logged-out {
+        --idecf-primary: #6D0757;
+        --idecf-hover: #8E0970;
+        --idecf-white: #FFFFFF;
+        --idecf-light-gray: #F5F5F5;
+    }
+
+    /* Contenedor principal del header */
+    .idecf-header-logged-out {
+        width: 100%;
+        background: var(--idecf-white);
+        border-bottom: 1px solid #f0e6ee;
+        box-shadow: 0 2px 8px rgba(109, 7, 87, 0.06);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        padding: 3px 10px;
+    }
+
+    .idecf-header-logged-out .header-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        min-height: 50px;
+    }
+
+    /* Branding */
+    .idecf-header-logged-out .header-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        text-decoration: none;
+    }
+
+    .idecf-header-logged-out .brand-text {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: var(--idecf-primary);
+    }
+
+    .idecf-header-logged-out .brand-subtitle {
+        font-size: 9px;
+        font-weight: 600;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Botón de login */
+    .idecf-header-logged-out .btn-login {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        background: var(--idecf-primary);
+        color: var(--idecf-white);
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(109, 7, 87, 0.2);
+    }
+
+    .idecf-header-logged-out .btn-login:hover {
+        background: var(--idecf-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(109, 7, 87, 0.3);
+    }
+
+    .idecf-header-logged-out .btn-login .icon {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .idecf-header-logged-out .header-container {
+            flex-wrap: wrap;
+            text-align: center;
+            padding: 0 0.75rem;
+            gap: 10px;
+        }
+
+        .idecf-header-logged-out .brand-subtitle {
+            font-size: 8px;
+        }
+
+        .idecf-header-logged-out .btn-login {
+            width: 100%;
+            justify-content: center;
+            padding: 8px 16px;
+            font-size: 11px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .idecf-header-logged-out .brand-text {
+            font-size: 16px;
+        }
+
+        .idecf-header-logged-out .brand-subtitle {
+            font-size: 7px;
+        }
+
+        .idecf-header-logged-out .btn-login span {
+            font-size: 11px;
+        }
+
+        .idecf-header-logged-out .btn-login .icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+</style>
