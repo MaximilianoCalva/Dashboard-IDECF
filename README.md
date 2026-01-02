@@ -130,8 +130,8 @@ Todos los componentes HTML de este proyecto están diseñados para ser implement
 
 ## Última Actualización
 
-Fecha: 2025-12-30  
-Versión: 1.0
+Fecha: 2026-01-01  
+Versión: 2.0
 
 ## Archivos de Acceso al Dashboard
 
