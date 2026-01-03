@@ -1,0 +1,111 @@
+<div class="aviso-administrativos">
+    <div class="aviso-icon">🔒</div>
+    <div class="aviso-content">
+        <h3 class="aviso-titulo">Acceso Restringido</h3>
+        <p class="aviso-texto">Este apartado solo está disponible para <strong>Administrativos</strong></p>
+    </div>
+    <div class="arrow-down">
+        <svg viewBox="0 0 24 24" class="arrow-icon">
+            <path d="M7 10l5 5 5-5" />
+        </svg>
+    </div>
+</div>
+
+<style>
+    .aviso-administrativos {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+        border-left: 5px solid #dc3545;
+        padding: 20px 25px;
+        border-radius: 12px;
+        margin: 20px 0;
+        box-shadow: 0 4px 12px rgba(220, 53, 69, 0.1);
+        position: relative;
+    }
+
+    .aviso-administrativos .arrow-down {
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce-arrow 2s infinite;
+    }
+
+    .aviso-administrativos .arrow-icon {
+        width: 30px;
+        height: 30px;
+        fill: none;
+        stroke: #dc3545;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    @keyframes bounce-arrow {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        40% {
+            transform: translateX(-50%) translateY(8px);
+        }
+
+        60% {
+            transform: translateX(-50%) translateY(4px);
+        }
+    }
+
+    .aviso-icon {
+        font-size: 2.5em;
+        flex-shrink: 0;
+    }
+
+    .aviso-content {
+        flex: 1;
+    }
+
+    .aviso-titulo {
+        color: #dc3545;
+        font-size: 1.3em;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+
+    .aviso-texto {
+        color: #721c24;
+        font-size: 1em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .aviso-texto strong {
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        .aviso-administrativos {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .aviso-icon {
+            font-size: 2em;
+        }
+
+        .aviso-titulo {
+            font-size: 1.2em;
+        }
+
+        .aviso-texto {
+            font-size: 0.95em;
+        }
+    }
+</style>

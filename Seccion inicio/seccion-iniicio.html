@@ -1,0 +1,2925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard IDECF - Visualización Completa</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f5f7fa; padding: 20px; }
+        .dashboard-container { max-width: 1400px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
+        .section-divider { border: none; border-top: 2px dashed #e0e0e0; margin: 60px 0; }
+        .section-label { text-align: center; color: #999; font-size: 0.9em; margin: 40px 0 20px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- ========================================= -->
+        <!-- SECCIÓN 01: Dashboard Inicio -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 01 - Dashboard Inicio</div>
+
+        <!DOCTYPE html>
+        <html lang="es">
+
+        <head>
+            <meta charset="UTF-8">
+            <style>
+                /* Contenedor principal estilo cápsula compacta */
+                .idecf-dashboard-pill {
+                    width: auto;
+                    max-width: fit-content;
+                    margin: 0 auto;
+                    padding: 10px;
+                    background: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+                    /* Bordes extra redondeados */
+                    border-radius: 40px;
+                    border: 1px solid #f0e6f7;
+
+                    /* Elevación sutil */
+                    box-shadow: 0 4px 10px rgba(109, 7, 87, 0.08);
+                }
+
+                /* Nombre de la Institución */
+                .brand-name {
+                    font-size: 10px;
+                    font-weight: 800;
+                    letter-spacing: 1px;
+                    color: #6D0757;
+                    /* Morado IDECF */
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+
+                /* Separador vertical */
+                .v-divider {
+                    width: 1px;
+                    height: 14px;
+                    background: #6D0757;
+                    opacity: 0.2;
+                }
+
+                /* Texto intermedio */
+                .platform-text {
+                    font-size: 9px;
+                    font-weight: 600;
+                    color: #bbb;
+                    text-transform: uppercase;
+                }
+
+                /* Título DASHBOARD */
+                .main-title {
+                    font-size: 16px;
+                    color: #6D0757;
+                    font-weight: 800;
+                    letter-spacing: -0.2px;
+                    margin: 0;
+                }
+
+                /* Indicador animado */
+                .arrow-indicator {
+                    display: flex;
+                    align-items: center;
+                    color: #6D0757;
+                    animation: bounce-tiny 2s infinite;
+                }
+
+                .arrow-indicator svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 3.5;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+
+                /* Animación minimalista */
+                @keyframes bounce-tiny {
+
+                    0%,
+                    20%,
+                    50%,
+                    80%,
+                    100% {
+                        transform: translateY(0);
+                    }
+
+                    40% {
+                        transform: translateY(3px);
+                    }
+
+                    60% {
+                        transform: translateY(1.5px);
+                    }
+                }
+
+                /* Ajuste móvil */
+                @media (max-width: 600px) {
+                    .idecf-dashboard-pill {
+                        gap: 8px;
+                        padding: 4px 12px;
+                    }
+
+                    .platform-text,
+                    .v-divider {
+                        display: none;
+                    }
+
+                    .main-title {
+                        font-size: 14px;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <div class="idecf-dashboard-pill">
+                <div class="brand-name">IDECF</div>
+
+                <div class="v-divider"></div>
+
+                <div class="platform-text">Plataforma</div>
+
+                <h1 class="main-title">DASHBOARD</h1>
+
+                <div class="arrow-indicator">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </div>
+
+        </body>
+
+        </html>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 02: Bienvenida -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 02 - Bienvenida</div>
+
+        Bienvenido Alumno IDECF
+        Bienvenido Docente IDECF
+        Bienvenido Administrativo IDECF
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 03: Aviso Admin/Docentes -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 03 - Aviso Admin/Docentes</div>
+
+        <div class="aviso-admin-docentes">
+            <div class="aviso-icon">👥</div>
+            <div class="aviso-content">
+                <h3 class="aviso-titulo">Acceso Restringido</h3>
+                <p class="aviso-texto">Este apartado está disponible para <strong>Administrativos y Docentes</strong></p>
+            </div>
+            <div class="arrow-down">
+                <svg viewBox="0 0 24 24" class="arrow-icon">
+                    <path d="M7 10l5 5 5-5" />
+                </svg>
+            </div>
+        </div>
+
+        <style>
+            .aviso-admin-docentes {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background: linear-gradient(135deg, #f0f7ff 0%, #e0efff 100%);
+                border-left: 5px solid #9B4F96;
+                padding: 20px 25px;
+                border-radius: 12px;
+                margin: 20px 0;
+                box-shadow: 0 4px 12px rgba(40, 99, 164, 0.1);
+                position: relative;
+            }
+
+            .aviso-admin-docentes .arrow-down {
+                position: absolute;
+                bottom: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: bounce-arrow-admin 2s infinite;
+            }
+
+            .aviso-admin-docentes .arrow-icon {
+                width: 30px;
+                height: 30px;
+                fill: none;
+                stroke: #9B4F96;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            @keyframes bounce-arrow-admin {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                40% {
+                    transform: translateX(-50%) translateY(8px);
+                }
+
+                60% {
+                    transform: translateX(-50%) translateY(4px);
+                }
+            }
+
+            .aviso-admin-docentes .aviso-icon {
+                font-size: 2.5em;
+                flex-shrink: 0;
+            }
+
+            .aviso-admin-docentes .aviso-content {
+                flex: 1;
+            }
+
+            .aviso-admin-docentes .aviso-titulo {
+                color: #6D0757;
+                font-size: 1.3em;
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+
+            .aviso-admin-docentes .aviso-texto {
+                color: #9B4F96;
+                font-size: 1em;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .aviso-admin-docentes .aviso-texto strong {
+                font-weight: 700;
+                color: #6D0757;
+            }
+
+            @media (max-width: 768px) {
+                .aviso-admin-docentes {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 15px;
+                }
+
+                .aviso-admin-docentes .aviso-icon {
+                    font-size: 2em;
+                }
+
+                .aviso-admin-docentes .aviso-titulo {
+                    font-size: 1.2em;
+                }
+
+                .aviso-admin-docentes .aviso-texto {
+                    font-size: 0.95em;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 04: Accesos Rápidos -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 04 - Accesos Rápidos</div>
+
+        <div class="accesos-container">
+            <div class="accesos-header">
+                <h2 class="titulo-principal">⚡ Accesos Rápidos</h2>
+                <p class="descripcion">Accede directamente a las herramientas principales del instituto</p>
+            </div>
+
+            <div class="accesos-grid">
+                <div class="acceso-card correo">
+                    <div class="acceso-icono">📧</div>
+                    <h3 class="acceso-titulo">Correo Electrónico</h3>
+                    <p class="acceso-descripcion">¿Quieres revisar tu correo? Entra al siguiente botón para revisar tu bandeja
+                        de entrada</p>
+                    <a href="https://idecf.com/webmail" class="acceso-btn" target="_blank">
+                        📬 Ir a bandeja de entrada
+                    </a>
+                </div>
+
+                <div class="acceso-card examenes">
+                    <div class="acceso-icono">📝</div>
+                    <h3 class="acceso-titulo">Registro de Exámenes</h3>
+                    <p class="acceso-descripcion">Visualiza y gestiona el registro de exámenes de los alumnos de manera
+                        organizada</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1OIKbpsUz1PxOQ4cyiSBbWNINea8yFWfp3wbpOV20Z9k/edit?usp=sharing"
+                        class="acceso-btn" target="_blank">
+                        📊 Selecciona aquí para visualizar
+                    </a>
+                </div>
+
+                <div class="acceso-card panel">
+                    <div class="acceso-icono">🔧</div>
+                    <h3 class="acceso-titulo">Panel de Administración</h3>
+                    <p class="acceso-descripcion">¿Quieres ir al panel de plataforma? Entra al siguiente botón para acceder al
+                        panel administrativo</p>
+                    <a href="https://idecf.com/wp-admin" class="acceso-btn" target="_blank">
+                        ⚙️ Panel de plataforma
+                    </a>
+                </div>
+            </div>
+
+            <div class="accesos-footer">
+                <p class="nota-footer">
+                    💙 Accede rápidamente a las herramientas que necesitas para gestionar el instituto
+                </p>
+            </div>
+        </div>
+
+        <style>
+            .accesos-container {
+                max-width: 100%;
+                margin: 0;
+                background: white;
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .accesos-header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .titulo-principal {
+                color: #6D0757;
+                font-size: 2.2em;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .descripcion {
+                color: #666;
+                font-size: 1.1em;
+                line-height: 1.6;
+            }
+
+            .accesos-grid {
+                display: grid;
+                /* Ajuste para que quepan 3 columnas si hay espacio */
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                margin: 0;
+                padding: 10px;
+            }
+
+            .acceso-card {
+                background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+                border-radius: 15px;
+                padding: 35px;
+                text-align: center;
+                transition: all 0.3s ease;
+                border: 3px solid transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .acceso-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 30px rgba(34, 61, 125, 0.2);
+            }
+
+            /* Colores específicos por tarjeta */
+            .acceso-card.correo {
+                border-color: #2196F3;
+            }
+
+            .acceso-card.correo:hover {
+                background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            }
+
+            .acceso-card.examenes {
+                border-color: #9c27b0;
+            }
+
+            .acceso-card.examenes:hover {
+                background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            }
+
+            .acceso-card.panel {
+                border-color: #4CAF50;
+            }
+
+            .acceso-card.panel:hover {
+                background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            }
+
+            .acceso-icono {
+                font-size: 4em;
+                margin-bottom: 20px;
+            }
+
+            .acceso-titulo {
+                color: #6D0757;
+                font-size: 1.6em;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .acceso-descripcion {
+                color: #555;
+                font-size: 1.05em;
+                line-height: 1.7;
+                margin-bottom: 25px;
+                flex-grow: 1;
+            }
+
+            .acceso-btn {
+                display: inline-block;
+                padding: 15px 35px;
+                background: #9B4F96;
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: bold;
+                font-size: 1.1em;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(34, 61, 125, 0.3);
+            }
+
+            .acceso-btn:hover {
+                background: #C084B8;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(34, 61, 125, 0.5);
+                color: white !important;
+            }
+
+            .accesos-footer {
+                margin-top: 40px;
+                padding-top: 30px;
+                border-top: 2px solid #e8eeff;
+                text-align: center;
+            }
+
+            .nota-footer {
+                color: #6D0757;
+                font-size: 1.1em;
+                line-height: 1.6;
+                font-weight: 500;
+            }
+
+            @media (max-width: 768px) {
+                .accesos-container {
+                    padding: 25px;
+                }
+
+                .titulo-principal {
+                    font-size: 1.8em;
+                }
+
+                .accesos-grid {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                .acceso-card {
+                    padding: 30px;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 05: Aviso Solo Visualización -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 05 - Aviso Solo Visualización</div>
+
+        <div class="aviso-visualizacion">
+            <div class="aviso-icon">👁️</div>
+            <div class="aviso-content">
+                <h3 class="aviso-titulo">Solo Visualización</h3>
+                <p class="aviso-texto">Este apartado es solo una visualización. Si gustas generar un cambio, puedes
+                    <strong>levantar una requisición</strong></p>
+            </div>
+        </div>
+
+        <style>
+            .aviso-visualizacion {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+                border-left: 5px solid #ffc107;
+                padding: 20px 25px;
+                border-radius: 12px;
+                margin: 20px 0;
+                box-shadow: 0 4px 12px rgba(255, 193, 7, 0.1);
+            }
+
+            .aviso-visualizacion .aviso-icon {
+                font-size: 2.5em;
+                flex-shrink: 0;
+            }
+
+            .aviso-visualizacion .aviso-content {
+                flex: 1;
+            }
+
+            .aviso-visualizacion .aviso-titulo {
+                color: #856404;
+                font-size: 1.3em;
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+
+            .aviso-visualizacion .aviso-texto {
+                color: #856404;
+                font-size: 1em;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .aviso-visualizacion .aviso-texto strong {
+                font-weight: 700;
+                color: #664d03;
+            }
+
+            @media (max-width: 768px) {
+                .aviso-visualizacion {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 15px;
+                }
+
+                .aviso-visualizacion .aviso-icon {
+                    font-size: 2em;
+                }
+
+                .aviso-visualizacion .aviso-titulo {
+                    font-size: 1.2em;
+                }
+
+                .aviso-visualizacion .aviso-texto {
+                    font-size: 0.95em;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 06: Reglamento -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 06 - Reglamento</div>
+
+        <div class="reglamento-container">
+            <div class="reglamento-card">
+                <div class="reglamento-contenido">
+                    <div class="reglamento-icono">⚖️</div>
+                    <div class="reglamento-texto">
+                        <h3 class="reglamento-titulo">Reglamento Institucional</h3>
+                        <p class="reglamento-descripcion">
+                            Consulta los lineamientos, normas y bases oficiales del <strong>Instituto Internacional de
+                                Constelaciones Familiares</strong>. Es fundamental para mantener la excelencia académica.
+                        </p>
+                    </div>
+                    <div class="reglamento-accion">
+                        <a href="https://idecf.com/reglamento-idecf/" class="reglamento-btn" target="_blank">
+                            📜 Ver Reglamento Oficial
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .reglamento-container {
+                width: 100%;
+                margin: 0;
+                padding: 10px;
+                font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            .reglamento-card {
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+                border-left: 6px solid #0891b2;
+                border-radius: 15px;
+                padding: 30px;
+                box-shadow: 0 4px 15px rgba(8, 145, 178, 0.15);
+                transition: transform 0.3s ease;
+            }
+
+            .reglamento-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(8, 145, 178, 0.25);
+            }
+
+            .reglamento-contenido {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .reglamento-icono {
+                font-size: 3.5em;
+                flex-shrink: 0;
+            }
+
+            .reglamento-texto {
+                flex: 1;
+                min-width: 250px;
+            }
+
+            .reglamento-titulo {
+                color: #6D0757;
+                font-size: 1.6em;
+                margin: 0 0 10px 0;
+                font-weight: bold;
+            }
+
+            .reglamento-descripcion {
+                color: #555;
+                font-size: 1.05em;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            .reglamento-accion {
+                flex-shrink: 0;
+            }
+
+            .reglamento-btn {
+                display: inline-block;
+                padding: 15px 30px;
+                background: #6D0757;
+                color: white !important;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: bold;
+                font-size: 1.1em;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+                text-align: center;
+            }
+
+            .reglamento-btn:hover {
+                background: #8E0970;
+                transform: scale(1.05);
+                box-shadow: 0 6px 15px rgba(8, 145, 178, 0.4);
+            }
+
+            /* Diseño responsivo */
+            @media (max-width: 768px) {
+                .reglamento-contenido {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .reglamento-icono {
+                    margin-bottom: 10px;
+                }
+
+                .reglamento-btn {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 07: Plataforma Inactiva -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 07 - Plataforma Inactiva</div>
+
+        <div class="aviso-plataforma-container">
+            <div class="aviso-card">
+                <div class="aviso-header">
+                    <div class="aviso-icon-container">
+                        <span class="aviso-alerta-icon">!</span>
+                    </div>
+                    <h2 class="aviso-titulo">Estado de la Cuenta</h2>
+                    <p class="aviso-subtitulo">Si tu acceso presenta inconvenientes, estas podrían ser las razones:</p>
+                </div>
+
+                <div class="aviso-cuerpo">
+                    <div class="motivo-item">
+                        <div class="motivo-icono">🗓️</div>
+                        <div class="motivo-texto">
+                            <h3>Baja Temporal</h3>
+                            <p>Si te encuentras en una baja temporal y deseas reactivar tu cuenta, ponte en contacto con el
+                                <strong>Instituto</strong>. Estaremos encantados de asistirte para tu reincorporación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="motivo-item">
+                        <div class="motivo-icono">💳</div>
+                        <div class="motivo-texto">
+                            <h3>Adeudo en Mensualidad</h3>
+                            <p>Si tienes un saldo pendiente, tu cuenta podría estar inactiva. Por favor, comunícate con
+                                <strong>Administración</strong> para regularizar tu situación y continuar con tu formación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aviso-footer">
+                    <p class="nota-final">
+                        Para cualquier duda o asistencia, no dudes en contactarnos.<br>
+                        <strong>IDECF | ¡Estamos aquí para ayudarte!</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .aviso-plataforma-container {
+                width: 100%;
+                margin: 0;
+                padding: 10px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            .aviso-card {
+                background: #ffffff;
+                border: 1px solid #e1bee7;
+                /* Morado muy claro */
+                border-top: 6px solid #6D0757;
+                /* El Morado IDECF */
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 15px 35px rgba(109, 7, 87, 0.1);
+            }
+
+            .aviso-header {
+                background: #fdfbff;
+                padding: 35px 20px;
+                text-align: center;
+                border-bottom: 1px solid #f3e5f5;
+            }
+
+            .aviso-icon-container {
+                width: 60px;
+                height: 60px;
+                background: #6D0757;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 15px;
+                font-size: 32px;
+                font-weight: bold;
+                box-shadow: 0 4px 10px rgba(109, 7, 87, 0.3);
+            }
+
+            .aviso-titulo {
+                color: #6D0757;
+                font-size: 1.8em;
+                margin: 0;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+            }
+
+            .aviso-subtitulo {
+                color: #666;
+                font-size: 1.05em;
+                margin-top: 10px;
+                max-width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .aviso-cuerpo {
+                padding: 30px;
+            }
+
+            .motivo-item {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 20px;
+                padding: 20px;
+                border-radius: 15px;
+                background: #f9f7fc;
+                border-left: 4px solid #6D0757;
+                transition: transform 0.2s;
+            }
+
+            .motivo-item:hover {
+                transform: translateX(5px);
+            }
+
+            .motivo-icono {
+                font-size: 2em;
+                flex-shrink: 0;
+            }
+
+            .motivo-texto h3 {
+                color: #6D0757;
+                margin: 0 0 5px 0;
+                font-size: 1.2em;
+                font-weight: 700;
+            }
+
+            .motivo-texto p {
+                color: #444;
+                margin: 0;
+                line-height: 1.5;
+                font-size: 0.95em;
+            }
+
+            .aviso-footer {
+                background: #6D0757;
+                padding: 25px;
+                text-align: center;
+                color: white;
+            }
+
+            .nota-final {
+                font-size: 1.1em;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .nota-final strong {
+                color: #fff;
+                display: block;
+                margin-top: 5px;
+                letter-spacing: 1px;
+            }
+
+            @media (max-width: 600px) {
+                .motivo-item {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .motivo-icono {
+                    margin-bottom: 10px;
+                }
+
+                .aviso-titulo {
+                    font-size: 1.5em;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 08: Aviso Solo Administrativos -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 08 - Aviso Solo Administrativos</div>
+
+        <div class="aviso-administrativos">
+            <div class="aviso-icon">🔒</div>
+            <div class="aviso-content">
+                <h3 class="aviso-titulo">Acceso Restringido</h3>
+                <p class="aviso-texto">Este apartado solo está disponible para <strong>Administrativos</strong></p>
+            </div>
+            <div class="arrow-down">
+                <svg viewBox="0 0 24 24" class="arrow-icon">
+                    <path d="M7 10l5 5 5-5" />
+                </svg>
+            </div>
+        </div>
+
+        <style>
+            .aviso-administrativos {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+                border-left: 5px solid #dc3545;
+                padding: 20px 25px;
+                border-radius: 12px;
+                margin: 20px 0;
+                box-shadow: 0 4px 12px rgba(220, 53, 69, 0.1);
+                position: relative;
+            }
+
+            .aviso-administrativos .arrow-down {
+                position: absolute;
+                bottom: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: bounce-arrow 2s infinite;
+            }
+
+            .aviso-administrativos .arrow-icon {
+                width: 30px;
+                height: 30px;
+                fill: none;
+                stroke: #dc3545;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            @keyframes bounce-arrow {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                40% {
+                    transform: translateX(-50%) translateY(8px);
+                }
+
+                60% {
+                    transform: translateX(-50%) translateY(4px);
+                }
+            }
+
+            .aviso-icon {
+                font-size: 2.5em;
+                flex-shrink: 0;
+            }
+
+            .aviso-content {
+                flex: 1;
+            }
+
+            .aviso-titulo {
+                color: #dc3545;
+                font-size: 1.3em;
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+
+            .aviso-texto {
+                color: #721c24;
+                font-size: 1em;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .aviso-texto strong {
+                font-weight: 700;
+            }
+
+            @media (max-width: 768px) {
+                .aviso-administrativos {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 15px;
+                }
+
+                .aviso-icon {
+                    font-size: 2em;
+                }
+
+                .aviso-titulo {
+                    font-size: 1.2em;
+                }
+
+                .aviso-texto {
+                    font-size: 0.95em;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 09: Información Chatbot -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 09 - Información Chatbot</div>
+
+        <div class="chatbot-recursos-container">
+            <div class="recursos-header">
+                <div class="brand-badge">IDECF ACADÉMICO</div>
+                <h2 class="titulo-principal">🤖 Chatbot IDECF - Recursos</h2>
+                <p class="descripcion">Accede a las herramientas de inteligencia artificial y documentación del Instituto de
+                    Constelaciones Familiares</p>
+            </div>
+
+            <div class="recursos-grid">
+                <div class="recurso-card chatbot">
+                    <div class="recurso-icono">💬</div>
+                    <h3 class="recurso-titulo">Chatbot IDECF</h3>
+                    <p class="recurso-descripcion">Asistente virtual especializado en Constelaciones Familiares y Bioenergética.
+                    </p>
+                    <a href="https://n8n.srv1017270.hstgr.cloud/webhook/a6d7588e-31e7-4733-9e29-7e4aeedd7e76/chat"
+                        class="recurso-btn" target="_blank">
+                        Abrir Chatbot
+                    </a>
+                </div>
+
+                <div class="recurso-card mejoras">
+                    <div class="recurso-icono">📈</div>
+                    <h3 class="recurso-titulo">Registro de Mejoras</h3>
+                    <p class="recurso-descripcion">Hoja de ruta con las actualizaciones, correcciones y nuevas funciones del
+                        bot.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/12MQmOKGP3afLE1RJLJCqFzu3PZqUFqmPjw14eTXcBQ8/edit?usp=sharing"
+                        class="recurso-btn" target="_blank">
+                        Ver Mejoras
+                    </a>
+                </div>
+
+                <div class="recurso-card memoria">
+                    <div class="recurso-icono">🧠</div>
+                    <h3 class="recurso-titulo">Base de Conocimiento</h3>
+                    <p class="recurso-descripcion">Documentación estructural con la filosofía y saberes base de IDECF.</p>
+                    <a href="https://docs.google.com/document/d/12w-j2bguls3Hu64I2shj7IsRnVkGrFGyzzywvhLLhrw/edit?usp=sharing"
+                        class="recurso-btn" target="_blank">
+                        Ver Memorias
+                    </a>
+                </div>
+
+                <div class="recurso-card memoria-activa">
+                    <div class="recurso-icono">⚡</div>
+                    <h3 class="recurso-titulo">Memoria Activa</h3>
+                    <p class="recurso-descripcion">Archivo de procesamiento de datos actualmente implementado en tiempo real.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1a2cKJHAqWh2DS9nHjMyfNbnQlJqFRatT/view?usp=sharing"
+                        class="recurso-btn" target="_blank">
+                        Ver Memoria Activa
+                    </a>
+                </div>
+            </div>
+
+            <div class="recursos-footer">
+                <p class="nota-footer">
+                    💜 Recursos exclusivos para la optimización de la experiencia académica sistémica en IDECF.
+                </p>
+            </div>
+        </div>
+
+        <style>
+            :root {
+                --morado-idecf: #6D0757;
+                --morado-hover: #8E0970;
+                --fondo-lila: #fdfbff;
+                --borde-lila: #f0e6f7;
+            }
+
+            .chatbot-recursos-container {
+                max-width: 100%;
+                margin: 0;
+                padding: 10px;
+                background: white;
+                border-radius: 24px;
+                padding: 40px;
+                box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            .brand-badge {
+                background: #f3e5f5;
+                color: var(--morado-idecf);
+                display: inline-block;
+                padding: 5px 15px;
+                border-radius: 50px;
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
+            }
+
+            .recursos-header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .titulo-principal {
+                color: var(--morado-idecf);
+                font-size: 2.2em;
+                margin-bottom: 15px;
+                font-weight: 800;
+            }
+
+            .descripcion {
+                color: #666;
+                font-size: 1.1em;
+                line-height: 1.6;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .recursos-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 25px;
+                margin: 0;
+                padding: 10px;
+            }
+
+            .recurso-card {
+                background: var(--fondo-lila);
+                border-radius: 20px;
+                padding: 35px 25px;
+                text-align: center;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border: 1px solid #f0e6f7;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+
+            .recurso-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(118, 75, 162, 0.12);
+                border-color: var(--morado-idecf);
+            }
+
+            .recurso-icono {
+                font-size: 3.5em;
+                margin-bottom: 20px;
+                filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+            }
+
+            .recurso-titulo {
+                color: var(--morado-idecf);
+                font-size: 1.3em;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+            .recurso-descripcion {
+                color: #555;
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 25px;
+                flex-grow: 1;
+            }
+
+            .recurso-btn {
+                display: inline-block;
+                padding: 12px 25px;
+                background: var(--morado-idecf);
+                color: white !important;
+                text-decoration: none;
+                border-radius: 12px;
+                font-weight: 700;
+                font-size: 0.9em;
+                transition: all 0.3s ease;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .recurso-btn:hover {
+                background: var(--morado-hover);
+                box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+            }
+
+            /* Colores de acento sutiles para cada tarjeta */
+            .chatbot {
+                border-top: 5px solid #6D0757;
+            }
+
+            .mejoras {
+                border-top: 5px solid #8E0970;
+            }
+
+            .memoria {
+                border-top: 5px solid #A855F7;
+            }
+
+            .memoria-activa {
+                border-top: 5px solid #C084FC;
+            }
+
+            .recursos-footer {
+                margin-top: 40px;
+                padding-top: 30px;
+                border-top: 1px solid #eee;
+                text-align: center;
+            }
+
+            .nota-footer {
+                color: var(--morado-idecf);
+                font-size: 1.1em;
+                font-weight: 500;
+            }
+
+            @media (max-width: 768px) {
+                .chatbot-recursos-container {
+                    padding: 25px;
+                }
+
+                .titulo-principal {
+                    font-size: 1.7em;
+                }
+
+                .recursos-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 10: Oferta Activa (Tabla Dinámica) -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 10 - Oferta Activa (Tabla Dinámica)</div>
+
+        <!-- 
+          WIDGET DE ELEMENTOR - VISUALIZADOR DE DATOS EN TABLA COMPLETA
+
+          INSTRUCCIONES:
+          1. En Elementor, arrastra un widget "HTML" a tu página
+          2. Pega todo este código en el widget
+          3. Guarda y visualiza
+        -->
+
+        <div id="data-visualizer-container">
+            <div id="loading-state" class="loading-state">
+                <div class="spinner"></div>
+                <p>Cargando datos...</p>
+            </div>
+
+            <div id="error-state" class="error-state" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <p class="error-message">Error al cargar los datos. Por favor, intenta de nuevo más tarde.</p>
+                <button id="retry-button" class="retry-button">Reintentar</button>
+            </div>
+
+            <div id="table-container" class="table-container" style="display: none;">
+                <h2 class="table-title">Diplomados, Talleres/Cursos y Eventos activos</h2>
+                <div class="table-scroll">
+                    <table id="data-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="col-title">Diplomado/Curso/Taller/Evento</th>
+                                <th class="col-copy">Descripción</th>
+                                <th class="col-image">Imagen</th>
+                                <th class="col-video">Video</th>
+                                <th class="col-landing">Web de Aterrizaje</th>
+                                <th class="col-register">Web de Registro</th>
+                                <th class="col-thanks">Web de Gracias</th>
+                                <th class="col-stripe">Link de Stripe</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Las filas se generarán dinámicamente aquí -->
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <p class="footer-note">📌 <strong>Importante:</strong> Favor de notificar por el grupo de la marca para
+                            la alta del diplomado, curso, taller o evento dentro del instituto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Variables CSS - IDECF (Biología) - Colores Actualizados */
+            :root {
+                --primary-color: #6D0757;
+                --primary-hover: #9B4F96;
+                --secondary-color: #C084B8;
+                --success-color: #059669;
+                --error-color: #dc2626;
+                --text-primary: #111827;
+                --text-secondary: #4b5563;
+                --bg-light: #f0f9ff;
+                --bg-white: #ffffff;
+                --border-color: #dbeafe;
+                --shadow-sm: 0 1px 2px 0 rgba(30, 58, 138, 0.05);
+                --shadow-md: 0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06);
+                --shadow-lg: 0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05);
+                --border-radius: 12px;
+                --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Reset y estilos base */
+            #data-visualizer-container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 3rem 1.5rem;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            }
+
+            #data-visualizer-container * {
+                box-sizing: border-box;
+            }
+
+            /* Estado de carga */
+            .loading-state {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 400px;
+                gap: 1.5rem;
+            }
+
+            .spinner {
+                width: 60px;
+                height: 60px;
+                border: 4px solid var(--border-color);
+                border-top-color: var(--primary-color);
+                border-radius: 50%;
+                animation: spin 0.8s linear infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .loading-state p {
+                color: var(--text-secondary);
+                font-size: 1.125rem;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            /* Estado de error */
+            .error-state {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 400px;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .error-icon {
+                font-size: 4rem;
+                opacity: 0.8;
+            }
+
+            .error-message {
+                color: var(--text-secondary);
+                font-size: 1.125rem;
+                margin: 0;
+                max-width: 500px;
+            }
+
+            .retry-button {
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 0.75rem 2rem;
+                border-radius: var(--border-radius);
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+
+            .retry-button:hover {
+                background: var(--primary-hover);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            /* Contenedor de tabla */
+            .table-container {
+                width: 100%;
+                background: var(--bg-white);
+                border-radius: 16px;
+                box-shadow: var(--shadow-lg);
+                animation: fadeIn 0.6s ease-in-out;
+                overflow: hidden;
+                border: 2px solid var(--primary-color);
+            }
+
+            /* Título de la tabla */
+            .table-title {
+                margin: 0 0 2rem 0;
+                padding: 1.5rem 2rem;
+                font-size: 1.85rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                text-align: center;
+                font-weight: 800;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Scroll horizontal */
+            .table-scroll {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: visible;
+            }
+
+            .table-scroll::-webkit-scrollbar {
+                height: 10px;
+            }
+
+            .table-scroll::-webkit-scrollbar-track {
+                background: var(--bg-light);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+
+            .table-scroll::-webkit-scrollbar-thumb {
+                background: var(--border-color);
+                border-radius: 5px;
+            }
+
+            .table-scroll::-webkit-scrollbar-thumb:hover {
+                background: var(--text-secondary);
+            }
+
+            /* Tabla */
+            .data-table {
+                width: 100%;
+                min-width: 1400px;
+                border-collapse: separate;
+                border-spacing: 0;
+            }
+
+            .data-table thead {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+
+            .data-table thead th {
+                padding: 1.25rem 2rem;
+                text-align: left;
+                font-weight: 600;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                white-space: nowrap;
+                position: sticky;
+                top: 0;
+            }
+
+            .data-table thead th:first-child {
+                border-top-left-radius: 14px;
+            }
+
+            .data-table thead th:last-child {
+                border-top-right-radius: 14px;
+            }
+
+            .data-table tbody tr {
+                border-bottom: 1px solid var(--border-color);
+                transition: var(--transition);
+            }
+
+            .data-table tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            .data-table tbody tr:hover {
+                background: linear-gradient(90deg, rgba(34, 61, 125, 0.05), rgba(45, 79, 158, 0.05));
+            }
+
+            .data-table tbody td {
+                padding: 1.5rem 2rem;
+                color: var(--text-primary);
+                vertical-align: middle;
+            }
+
+            /* Columnas específicas */
+            .col-title {
+                min-width: 250px;
+            }
+
+            .col-copy {
+                min-width: 300px;
+            }
+
+            .col-image {
+                min-width: 120px;
+                text-align: center;
+            }
+
+            .col-video,
+            .col-landing,
+            .col-register,
+            .col-thanks,
+            .col-stripe {
+                min-width: 150px;
+                text-align: center;
+            }
+
+            /* Estilos de celdas */
+            .cell-title {
+                font-weight: 700;
+                font-size: 1.05rem;
+                color: var(--primary-color);
+            }
+
+            .cell-copy {
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .cell-image {
+                text-align: center;
+            }
+
+            .course-image {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 12px;
+                box-shadow: var(--shadow-md);
+                transition: var(--transition);
+            }
+
+            .course-image:hover {
+                transform: scale(1.15);
+                box-shadow: var(--shadow-md);
+            }
+
+            .image-placeholder {
+                width: 80px;
+                height: 80px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                font-size: 2rem;
+                border-radius: 12px;
+            }
+
+            /* Botones de enlace */
+            .link-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 10px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition: var(--transition);
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .link-button-primary {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .link-button-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+                filter: brightness(1.1);
+            }
+
+            .link-button-secondary {
+                background: var(--bg-light);
+                color: var(--text-primary);
+                border: 1px solid var(--border-color);
+            }
+
+            .link-button-secondary:hover {
+                background: var(--bg-white);
+                border-color: var(--primary-color);
+                color: var(--primary-color);
+            }
+
+            .link-button-success {
+                background: var(--success-color);
+                color: white;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .link-button-success:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+                filter: brightness(1.1);
+            }
+
+            .empty-cell {
+                color: var(--text-secondary);
+                font-style: italic;
+                font-size: 0.875rem;
+            }
+
+            .empty-cell-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 1rem;
+                color: var(--text-secondary);
+                font-style: italic;
+                font-size: 0.875rem;
+                border: 1px dashed var(--border-color);
+                border-radius: 8px;
+                white-space: nowrap;
+                cursor: default;
+            }
+
+            /* Footer de la tabla */
+            .table-footer {
+                padding: 2rem 2.5rem;
+                background: var(--bg-light);
+                border-top: 2px solid var(--border-color);
+            }
+
+            .footer-note {
+                margin: 0;
+                color: var(--text-secondary);
+                font-size: 0.95rem;
+                text-align: center;
+                line-height: 1.6;
+            }
+
+            .footer-note strong {
+                color: var(--primary-color);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                #data-visualizer-container {
+                    padding: 1rem 0.5rem;
+                }
+
+                .data-table {
+                    min-width: 1200px;
+                }
+
+                .data-table thead th,
+                .data-table tbody td {
+                    padding: 0.75rem 1rem;
+                    font-size: 0.875rem;
+                }
+
+                .course-image,
+                .image-placeholder {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .link-button {
+                    padding: 0.375rem 0.75rem;
+                    font-size: 0.8rem;
+                }
+            }
+        </style>
+
+        <script>
+            (function () {
+                'use strict';
+
+                // URL de tu Apps Script (Ya configurada)
+                const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJCWt7R5LFaYbkEN79oiHRtfdl7I57uC7SBJzFnJfi6PudPTUs6Qf_TWWwBzl8Q1eURw/exec';
+                const SHEET_NAME = 'IDECF';
+
+                // Referencias a elementos del DOM
+                const loadingState = document.getElementById('loading-state');
+                const errorState = document.getElementById('error-state');
+                const tableContainer = document.getElementById('table-container');
+                const tableBody = document.getElementById('table-body');
+                const retryButton = document.getElementById('retry-button');
+
+                /**
+                 * Función principal para cargar y mostrar los datos
+                 */
+                async function loadData() {
+                    try {
+                        showLoading();
+
+                        const url = `${APPS_SCRIPT_URL}?sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+
+                        if (!result.success) {
+                            throw new Error(result.error || 'Error desconocido al obtener los datos');
+                        }
+
+                        renderTable(result.data);
+
+                    } catch (error) {
+                        console.error('Error al cargar los datos:', error);
+                        showError();
+                    }
+                }
+
+                /**
+                 * Renderiza la tabla con los datos obtenidos
+                 */
+                function renderTable(data) {
+                    if (!data || data.length === 0) {
+                        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 3rem; color: var(--text-secondary);">No hay datos disponibles en este momento.</td></tr>';
+                        showTable();
+                        return;
+                    }
+
+                    tableBody.innerHTML = '';
+
+                    data.forEach((item) => {
+                        const row = createTableRow(item);
+                        tableBody.appendChild(row);
+                    });
+
+                    showTable();
+                }
+
+                /**
+                 * Crea una fila de tabla
+                 */
+                function createTableRow(data) {
+                    const row = document.createElement('tr');
+
+                    // Columna 1: Título
+                    const titleCell = document.createElement('td');
+                    titleCell.className = 'cell-title';
+                    titleCell.textContent = data.diplomadoCursoTallerOEvento || 'Sin título';
+                    row.appendChild(titleCell);
+
+                    // Columna 2: Descripción (Copy)
+                    const copyCell = document.createElement('td');
+                    copyCell.className = 'cell-copy';
+                    copyCell.textContent = data.copyDeDiplomadoCursoTallerOEvento || 'Sin descripción';
+                    row.appendChild(copyCell);
+
+                    // Columna 3: Imagen
+                    const imageCell = document.createElement('td');
+                    imageCell.className = 'cell-image';
+
+                    if (data.imagenDeDiplomadoCursoTallerOEvento && data.imagenDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const img = document.createElement('img');
+                        img.className = 'course-image';
+                        img.src = data.imagenDeDiplomadoCursoTallerOEvento;
+                        img.alt = data.diplomadoCursoTallerOEvento || 'Imagen del curso';
+                        img.loading = 'lazy';
+                        img.onerror = function () {
+                            this.parentElement.innerHTML = '<div class="image-placeholder">📚</div>';
+                        };
+                        imageCell.appendChild(img);
+                    } else {
+                        imageCell.innerHTML = '<div class="image-placeholder">📚</div>';
+                    }
+                    row.appendChild(imageCell);
+
+                    // Columna 4: Video
+                    const videoCell = document.createElement('td');
+                    if (data.videoDeDiplomadoCursoTallerOEvento && data.videoDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const videoLink = createLink(data.videoDeDiplomadoCursoTallerOEvento, '🎥 Ver', 'link-button link-button-secondary');
+                        videoCell.appendChild(videoLink);
+                    } else {
+                        const emptyLink = createEmptyLink();
+                        videoCell.appendChild(emptyLink);
+                    }
+                    row.appendChild(videoCell);
+
+                    // Columna 5: Web de Aterrizaje
+                    const landingCell = document.createElement('td');
+                    if (data.webDeAterrizajeDeDiplomadoCursoTallerOEvento && data.webDeAterrizajeDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const landingLink = createLink(data.webDeAterrizajeDeDiplomadoCursoTallerOEvento, '� Visitar', 'link-button link-button-secondary');
+                        landingCell.appendChild(landingLink);
+                    } else {
+                        const emptyLink = createEmptyLink();
+                        landingCell.appendChild(emptyLink);
+                    }
+                    row.appendChild(landingCell);
+
+                    // Columna 6: Web de Registro
+                    const registerCell = document.createElement('td');
+                    if (data.webDeRegistroDeDiplomadoCursoTallerOEvento && data.webDeRegistroDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const registerLink = createLink(data.webDeRegistroDeDiplomadoCursoTallerOEvento, '✍️ Registro', 'link-button link-button-primary');
+                        registerCell.appendChild(registerLink);
+                    } else {
+                        const emptyLink = createEmptyLink();
+                        registerCell.appendChild(emptyLink);
+                    }
+                    row.appendChild(registerCell);
+
+                    // Columna 7: Web de Gracias
+                    const thanksCell = document.createElement('td');
+                    if (data.webDeGraciasDeDiplomadoCursoTallerOEvento && data.webDeGraciasDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const thanksLink = createLink(data.webDeGraciasDeDiplomadoCursoTallerOEvento, '🙏 Gracias', 'link-button link-button-secondary');
+                        thanksCell.appendChild(thanksLink);
+                    } else {
+                        const emptyLink = createEmptyLink();
+                        thanksCell.appendChild(emptyLink);
+                    }
+                    row.appendChild(thanksCell);
+
+                    // Columna 8: Link de Stripe
+                    const stripeCell = document.createElement('td');
+                    if (data.linkDeStripeDeDiplomadoCursoTallerOEvento && data.linkDeStripeDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                        const stripeLink = createLink(data.linkDeStripeDeDiplomadoCursoTallerOEvento, '💳 Pagar', 'link-button link-button-success');
+                        stripeCell.appendChild(stripeLink);
+                    } else {
+                        const emptyLink = createEmptyLink();
+                        stripeCell.appendChild(emptyLink);
+                    }
+                    row.appendChild(stripeCell);
+
+                    return row;
+                }
+
+                /**
+                 * Crea un elemento para celdas vacías (sin redirección)
+                 */
+                function createEmptyLink() {
+                    const span = document.createElement('span');
+                    span.className = 'empty-cell-link';
+                    span.textContent = 'Sin existencia - Solicitar';
+                    span.title = 'Favor de notificar por el grupo de la marca';
+                    return span;
+                }
+
+                /**
+                 * Crea un enlace/botón
+                 */
+                function createLink(url, text, className) {
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.className = className;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.textContent = text;
+                    return link;
+                }
+
+                /**
+                 * Funciones para mostrar/ocultar estados
+                 */
+                function showLoading() {
+                    loadingState.style.display = 'flex';
+                    errorState.style.display = 'none';
+                    tableContainer.style.display = 'none';
+                }
+
+                function showError() {
+                    loadingState.style.display = 'none';
+                    errorState.style.display = 'flex';
+                    tableContainer.style.display = 'none';
+                }
+
+                function showTable() {
+                    loadingState.style.display = 'none';
+                    errorState.style.display = 'none';
+                    tableContainer.style.display = 'block';
+                }
+
+                // Event listener para el botón de reintentar
+                retryButton.addEventListener('click', loadData);
+
+                // Cargar datos al iniciar
+                loadData();
+            })();
+        </script>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 11: Requisiciones -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 11 - Requisiciones</div>
+
+        <div class="requisiciones-container">
+            <div class="requisiciones-header">
+                <h2 class="titulo-principal">📋 Requisiciones y Solicitudes</h2>
+                <p class="descripcion">Selecciona el formulario correspondiente para iniciar tu solicitud</p>
+            </div>
+
+            <div class="requisiciones-grid">
+                <!-- Requisición General -->
+                <div class="requisicion-card general">
+                    <div class="requisicion-icono">📢</div>
+                    <h3 class="requisicion-titulo">Impulso Marketing</h3>
+                    <p class="requisicion-descripcion">Solicitud general de campañas y estrategias de marketing</p>
+                    <a href="https://forms.gle/Sqm7i23iNtHVtt1c7" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+
+                <!-- Paso 1 -->
+                <div class="requisicion-card">
+                    <div class="requisicion-icono">🖼️</div>
+                    <h3 class="requisicion-titulo">Paso 1: Imágenes</h3>
+                    <p class="requisicion-descripcion">Solicitud de imágenes publicitarias para Diplomados, Cursos o Eventos</p>
+                    <a href="https://forms.gle/KHRozTdWSxtCcE1SA" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="requisicion-card">
+                    <div class="requisicion-icono">🎬</div>
+                    <h3 class="requisicion-titulo">Paso 2: Videos</h3>
+                    <p class="requisicion-descripcion">Solicitud de videos publicitarios para Diplomados, Cursos o Eventos</p>
+                    <a href="https://forms.gle/qGf6Kk6kRT2ujYBp7" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="requisicion-card">
+                    <div class="requisicion-icono">✨</div>
+                    <h3 class="requisicion-titulo">Paso 3: Video de Marca</h3>
+                    <p class="requisicion-descripcion">Creación de video de marca (Inyección de Identidad)</p>
+                    <a href="https://forms.gle/K3g9gjTVYZc1TiaY8" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="requisicion-card">
+                    <div class="requisicion-icono">🔗</div>
+                    <h3 class="requisicion-titulo">Paso 4: Links y Redes</h3>
+                    <p class="requisicion-descripcion">Creación de Links y Redes Sociales (Comunidad)</p>
+                    <a href="https://forms.gle/gsRYVw3B9CpySpJq7" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="requisicion-card">
+                    <div class="requisicion-icono">💳</div>
+                    <h3 class="requisicion-titulo">Paso 5: Links de Pago</h3>
+                    <p class="requisicion-descripcion">Solicitud para creación de links de pago</p>
+                    <a href="https://forms.gle/AeFXD9MK4CpB1mCV9" class="requisicion-btn" target="_blank">
+                        📝 Ir al formulario
+                    </a>
+                </div>
+            </div>
+
+            <div class="requisiciones-footer">
+                <p class="nota-footer">
+                    ℹ️ Asegúrate de tener toda la información necesaria antes de iniciar tu solicitud
+                </p>
+            </div>
+        </div>
+
+        <style>
+            /* Variables Locales - IDECF */
+            .requisiciones-container {
+                --req-primary: #6D0757;
+                --req-secondary: #9B4F96;
+                --req-accent: #C084B8;
+                --req-bg: #f8f9ff;
+                --req-text: #333;
+            }
+
+            .requisiciones-container {
+                max-width: 100%;
+                margin: 0;
+                background: white;
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            .requisiciones-header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .titulo-principal {
+                color: var(--req-primary);
+                font-size: 2.2em;
+                margin-bottom: 10px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+            }
+
+            .descripcion {
+                color: #666;
+                font-size: 1.1em;
+            }
+
+            .requisiciones-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                padding: 10px;
+            }
+
+            .requisicion-card {
+                background: var(--req-bg);
+                border-radius: 16px;
+                padding: 30px 25px;
+                text-align: center;
+                transition: all 0.3s ease;
+                border: 1px solid #e8eeff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .requisicion-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 24px rgba(35, 56, 120, 0.1);
+                border-color: var(--req-secondary);
+            }
+
+            /* Tarjeta destacada (General) */
+            .requisicion-card.general {
+                background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+                border: 2px solid var(--req-secondary);
+            }
+
+            .requisicion-card.general .requisicion-titulo {
+                color: var(--req-primary);
+            }
+
+            .requisicion-icono {
+                font-size: 3.5em;
+                margin-bottom: 20px;
+                filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            }
+
+            .requisicion-titulo {
+                color: var(--req-secondary);
+                font-size: 1.4em;
+                margin-bottom: 12px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            .requisicion-descripcion {
+                color: #555;
+                font-size: 0.95em;
+                line-height: 1.5;
+                margin-bottom: 25px;
+                flex-grow: 1;
+            }
+
+            .requisicion-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 25px;
+                background: var(--req-secondary);
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 1em;
+                transition: all 0.3s ease;
+                width: 80%;
+                justify-content: center;
+            }
+
+            .requisicion-btn:hover {
+                background: var(--req-primary);
+                transform: scale(1.02);
+                box-shadow: 0 4px 12px rgba(35, 56, 120, 0.2);
+            }
+
+            .requisiciones-footer {
+                margin-top: 50px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                text-align: center;
+            }
+
+            .nota-footer {
+                color: #888;
+                font-size: 0.9em;
+                font-style: italic;
+            }
+
+            @media (max-width: 768px) {
+                .requisiciones-container {
+                    padding: 25px 15px;
+                }
+
+                .titulo-principal {
+                    font-size: 1.8em;
+                }
+
+                .requisiciones-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 12: Correos Activos -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 12 - Correos Activos</div>
+
+        <div class="correos-container">
+            <div class="correos-header">
+                <h2 class="titulo-principal">📧 Correos Activos de la Marca</h2>
+                <p class="descripcion">Listado de cuentas de correo institucionales activas</p>
+            </div>
+
+            <div class="correos-stats">
+                <div class="stat-card">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">Cuentas Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">22</div>
+                    <div class="stat-label">Almacenamiento Ilimitado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">38</div>
+                    <div class="stat-label">250 MB Asignados</div>
+                </div>
+            </div>
+
+            <div class="tabla-scroll">
+                <table class="correos-tabla">
+                    <thead>
+                        <tr>
+                            <th>Cuenta de Correo</th>
+                            <th>Almacenamiento Usado</th>
+                            <th>Almacenamiento Asignado</th>
+                            <th>% Uso</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="email-cell">administracion@idecf.com</td>
+                            <td>102.91 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">41.16%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">alejandra.debenchoam@idecf.com</td>
+                            <td>150.07 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">almact@idecf.com</td>
+                            <td>97.23 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.04%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">andrea.carvajal@idecf.com</td>
+                            <td>21.7 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">8.68%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">angelica.marin@idecf.com</td>
+                            <td>830.61 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">comercializacion@idecf.com</td>
+                            <td>82.87 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">consultas@idecf.com</td>
+                            <td>77.1 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">30.84%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">contacto@idecf.com</td>
+                            <td>138.24 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">55.3%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">denisse.jimenez@idecf.com</td>
+                            <td>1.95 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">diego.cisneros@idecf.com</td>
+                            <td>159.35 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.06%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">diplomado@idecf.com</td>
+                            <td>1.15 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">dulce.herrera@idecf.com</td>
+                            <td>4.94 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">eduardo.admin@idecf.com</td>
+                            <td>81.39 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">eduardo.alumno@idecf.com</td>
+                            <td>99.72 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.04%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">equipodebio@idecf.com</td>
+                            <td>81.23 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">equipodocente@idecf.com</td>
+                            <td>73.39 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">29.36%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">esmeralda.sandoval@idecf.com</td>
+                            <td>2.71 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">1.09%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">eventos@idecf.com</td>
+                            <td>110.25 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.04%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">fernando.sanchez@idecf.com</td>
+                            <td>19.75 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">7.9%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">fotosalumnos@idecf.com</td>
+                            <td>118.2 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">47.28%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">gilma.barragan@idecf.com</td>
+                            <td>71.56 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">28.62%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">informes@idecf.com</td>
+                            <td>110.99 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.04%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">institutodebio@idecf.com</td>
+                            <td>162.63 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-danger">65.05%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">itzel.anaya@idecf.com</td>
+                            <td>3.27 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">ivette.ferrer@idecf.com</td>
+                            <td>416.5 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">karina.valderrabano@idecf.com</td>
+                            <td>647.1 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">laura.garcia@idecf.com</td>
+                            <td>270.27 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">lilia.pascual@idecf.com</td>
+                            <td>1.23 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">lizbeth.renteria@idecf.com</td>
+                            <td>81.58 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">mariadelao.cordova@idecf.com</td>
+                            <td>1.3 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">marisol.munoz@idecf.com</td>
+                            <td>1.15 GB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">mercedes.estrada@idecf.com</td>
+                            <td>997 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">noelia.inda@idecf.com</td>
+                            <td>389.63 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">ofelia.puente@idecf.com</td>
+                            <td>503.44 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">osmary.acebal@idecf.com</td>
+                            <td>970.9 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">patricia.benard@idecf.com</td>
+                            <td>2.43 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.97%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">prueba@idecf.com</td>
+                            <td>81.74 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">redes@idecf.com</td>
+                            <td>154.09 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.06%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">reglamento@idecf.com</td>
+                            <td>176.98 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">rodrigo@idecf.com</td>
+                            <td>97.29 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.04%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">rodrigo.sanchez@idecf.com</td>
+                            <td>81.66 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">rosario.salazar@idecf.com</td>
+                            <td>1.94 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.78%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala1@idecf.com</td>
+                            <td>20.48 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">8.19%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala2@idecf.com</td>
+                            <td>21.17 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">8.47%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala3@idecf.com</td>
+                            <td>58.46 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-warning">23.38%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala4@idecf.com</td>
+                            <td>15.59 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">6.23%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala5@idecf.com</td>
+                            <td>36.79 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">14.72%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala6@idecf.com</td>
+                            <td>8.99 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">3.59%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala7@idecf.com</td>
+                            <td>15.58 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">6.23%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sala8@idecf.com</td>
+                            <td>13.94 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">5.58%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sandra.marmolejo@idecf.com</td>
+                            <td>81.95 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">soporte@idecf.com</td>
+                            <td>3.71 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">1.49%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">stripe@idecf.com</td>
+                            <td>6.69 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">2.67%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">sysadmin@idecf.com</td>
+                            <td>85.77 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.03%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">tiktok@idecf.com</td>
+                            <td>679.65 KB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">0.27%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">vimeo.01@idecf.com</td>
+                            <td>11.99 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">4.8%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">vimeo.02@idecf.com</td>
+                            <td>15.43 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">6.17%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">vimeo.plataforma.01@idecf.com</td>
+                            <td>19.32 MB</td>
+                            <td>250 MB</td>
+                            <td><span class="badge badge-success">7.73%</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="email-cell">yadira.guzman@idecf.com</td>
+                            <td>520.1 MB</td>
+                            <td>Ilimitado</td>
+                            <td><span class="badge badge-success">—</span></td>
+                            <td><span class="status-active">Activo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="correos-footer">
+                <p class="nota-footer">
+                    💡 <strong>Nota:</strong> Las cuentas con almacenamiento ilimitado están marcadas como "Ilimitado"
+                </p>
+            </div>
+        </div>
+
+        <style>
+            /* Variables Locales - IDECF */
+            .correos-container {
+                --idecf-primary: #6D0757;
+                --idecf-secondary: #9B4F96;
+                --idecf-accent: #C084B8;
+                --idecf-bg: #f8f9ff;
+            }
+
+            .correos-container {
+                max-width: 100%;
+                margin: 0;
+                background: white;
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            .correos-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .titulo-principal {
+                color: var(--idecf-primary);
+                font-size: 2.2em;
+                margin-bottom: 10px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+            }
+
+            .descripcion {
+                color: #666;
+                font-size: 1.1em;
+            }
+
+            /* Estadísticas */
+            .correos-stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .stat-card {
+                background: linear-gradient(135deg, var(--idecf-primary), var(--idecf-secondary));
+                padding: 25px;
+                border-radius: 15px;
+                text-align: center;
+                color: white;
+                box-shadow: 0 4px 15px rgba(35, 56, 120, 0.2);
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+                font-weight: 800;
+                margin-bottom: 5px;
+            }
+
+            .stat-label {
+                font-size: 0.9em;
+                opacity: 0.9;
+            }
+
+            /* Tabla */
+            .tabla-scroll {
+                width: 100%;
+                overflow-x: auto;
+                border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .correos-tabla {
+                width: 100%;
+                min-width: 800px;
+                border-collapse: collapse;
+                background: white;
+            }
+
+            .correos-tabla thead {
+                background: linear-gradient(135deg, var(--idecf-primary), var(--idecf-secondary));
+                color: white;
+            }
+
+            .correos-tabla th {
+                padding: 15px 20px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 0.9em;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .correos-tabla tbody tr {
+                border-bottom: 1px solid #f0f0f0;
+                transition: background 0.2s ease;
+            }
+
+            .correos-tabla tbody tr:hover {
+                background: var(--idecf-bg);
+            }
+
+            .correos-tabla td {
+                padding: 15px 20px;
+                color: #333;
+            }
+
+            .email-cell {
+                font-family: 'Courier New', monospace;
+                font-size: 0.85em;
+                color: var(--idecf-primary);
+                font-weight: 600;
+            }
+
+            /* Badges */
+            .badge {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.85em;
+                font-weight: 600;
+            }
+
+            .badge-success {
+                background: #d4edda;
+                color: #155724;
+            }
+
+            .badge-warning {
+                background: #fff3cd;
+                color: #856404;
+            }
+
+            .badge-danger {
+                background: #f8d7da;
+                color: #721c24;
+            }
+
+            .status-active {
+                display: inline-block;
+                padding: 4px 12px;
+                background: #d4edda;
+                color: #155724;
+                border-radius: 20px;
+                font-size: 0.85em;
+                font-weight: 600;
+            }
+
+            /* Footer */
+            .correos-footer {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                text-align: center;
+            }
+
+            .nota-footer {
+                color: #666;
+                font-size: 0.95em;
+            }
+
+            .nota-footer strong {
+                color: var(--idecf-primary);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .correos-container {
+                    padding: 25px 15px;
+                }
+
+                .titulo-principal {
+                    font-size: 1.8em;
+                }
+
+                .correos-stats {
+                    grid-template-columns: 1fr;
+                }
+
+                .correos-tabla {
+                    font-size: 0.85em;
+                }
+
+                .correos-tabla th,
+                .correos-tabla td {
+                    padding: 10px 12px;
+                }
+            }
+        </style>
+
+        <div class="section-divider"></div>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 13: Aviso Dashboard Estudiantil -->
+        <!-- ========================================= -->
+        <div class="section-label">Sección 13 - Aviso Dashboard Estudiantil</div>
+
+        <div class="aviso-estudiantil">
+            <div class="aviso-icon">📚</div>
+            <div class="aviso-content">
+                <h3 class="aviso-titulo">Dashboard Estudiantil</h3>
+                <p class="aviso-texto">Visualización de <strong>Dashboard Estudiantil</strong></p>
+            </div>
+            <div class="arrow-down">
+                <svg viewBox="0 0 24 24" class="arrow-icon">
+                    <path d="M7 10l5 5 5-5" />
+                </svg>
+            </div>
+        </div>
+
+        <style>
+            .aviso-estudiantil {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background: linear-gradient(135deg, #f8f9ff 0%, #e8eeff 100%);
+                border-left: 5px solid #6D0757;
+                padding: 20px 25px;
+                border-radius: 12px;
+                margin: 20px 0;
+                box-shadow: 0 4px 12px rgba(35, 56, 120, 0.1);
+                position: relative;
+            }
+
+            .arrow-down {
+                position: absolute;
+                bottom: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: bounce-arrow 2s infinite;
+            }
+
+            .arrow-icon {
+                width: 30px;
+                height: 30px;
+                fill: none;
+                stroke: #6D0757;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            @keyframes bounce-arrow {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                40% {
+                    transform: translateX(-50%) translateY(8px);
+                }
+
+                60% {
+                    transform: translateX(-50%) translateY(4px);
+                }
+            }
+
+            .aviso-estudiantil .aviso-icon {
+                font-size: 2.5em;
+                flex-shrink: 0;
+            }
+
+            .aviso-estudiantil .aviso-content {
+                flex: 1;
+            }
+
+            .aviso-estudiantil .aviso-titulo {
+                color: #6D0757;
+                font-size: 1.3em;
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+
+            .aviso-estudiantil .aviso-texto {
+                color: #9B4F96;
+                font-size: 1em;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .aviso-estudiantil .aviso-texto strong {
+                font-weight: 700;
+                color: #6D0757;
+            }
+
+            @media (max-width: 768px) {
+                .aviso-estudiantil {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 15px;
+                }
+
+                .aviso-estudiantil .aviso-icon {
+                    font-size: 2em;
+                }
+
+                .aviso-estudiantil .aviso-titulo {
+                    font-size: 1.2em;
+                }
+
+                .aviso-estudiantil .aviso-texto {
+                    font-size: 0.95em;
+                }
+            }
+        </style>
+        <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #6D0757 0%, #9B4F96 100%); border-radius: 15px; margin-top: 60px; color: white;">
+            <h3 style="margin-bottom: 15px;">✅ Visualización Completa del Dashboard IDECF</h3>
+            <p style="line-height: 1.6; opacity: 0.95;">Este archivo consolida las <strong>13 secciones completas</strong> del Dashboard de Inicio.<br>Todas las secciones están incluidas con su contenido completo, estilos y funcionalidades.</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">📅 Última actualización: 2 de enero de 2026</p>
+        </div>
+    </div>
+</body>
+</html>

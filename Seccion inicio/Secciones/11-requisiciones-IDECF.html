@@ -1,0 +1,221 @@
+<div class="requisiciones-container">
+    <div class="requisiciones-header">
+        <h2 class="titulo-principal">📋 Requisiciones y Solicitudes</h2>
+        <p class="descripcion">Selecciona el formulario correspondiente para iniciar tu solicitud</p>
+    </div>
+
+    <div class="requisiciones-grid">
+        <!-- Requisición General -->
+        <div class="requisicion-card general">
+            <div class="requisicion-icono">📢</div>
+            <h3 class="requisicion-titulo">Impulso Marketing</h3>
+            <p class="requisicion-descripcion">Solicitud general de campañas y estrategias de marketing</p>
+            <a href="https://forms.gle/Sqm7i23iNtHVtt1c7" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+
+        <!-- Paso 1 -->
+        <div class="requisicion-card">
+            <div class="requisicion-icono">🖼️</div>
+            <h3 class="requisicion-titulo">Paso 1: Imágenes</h3>
+            <p class="requisicion-descripcion">Solicitud de imágenes publicitarias para Diplomados, Cursos o Eventos</p>
+            <a href="https://forms.gle/KHRozTdWSxtCcE1SA" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="requisicion-card">
+            <div class="requisicion-icono">🎬</div>
+            <h3 class="requisicion-titulo">Paso 2: Videos</h3>
+            <p class="requisicion-descripcion">Solicitud de videos publicitarios para Diplomados, Cursos o Eventos</p>
+            <a href="https://forms.gle/qGf6Kk6kRT2ujYBp7" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="requisicion-card">
+            <div class="requisicion-icono">✨</div>
+            <h3 class="requisicion-titulo">Paso 3: Video de Marca</h3>
+            <p class="requisicion-descripcion">Creación de video de marca (Inyección de Identidad)</p>
+            <a href="https://forms.gle/K3g9gjTVYZc1TiaY8" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="requisicion-card">
+            <div class="requisicion-icono">🔗</div>
+            <h3 class="requisicion-titulo">Paso 4: Links y Redes</h3>
+            <p class="requisicion-descripcion">Creación de Links y Redes Sociales (Comunidad)</p>
+            <a href="https://forms.gle/gsRYVw3B9CpySpJq7" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="requisicion-card">
+            <div class="requisicion-icono">💳</div>
+            <h3 class="requisicion-titulo">Paso 5: Links de Pago</h3>
+            <p class="requisicion-descripcion">Solicitud para creación de links de pago</p>
+            <a href="https://forms.gle/AeFXD9MK4CpB1mCV9" class="requisicion-btn" target="_blank">
+                📝 Ir al formulario
+            </a>
+        </div>
+    </div>
+
+    <div class="requisiciones-footer">
+        <p class="nota-footer">
+            ℹ️ Asegúrate de tener toda la información necesaria antes de iniciar tu solicitud
+        </p>
+    </div>
+</div>
+
+<style>
+    /* Variables Locales - IDECF */
+    .requisiciones-container {
+        --req-primary: #6D0757;
+        --req-secondary: #9B4F96;
+        --req-accent: #C084B8;
+        --req-bg: #f8f9ff;
+        --req-text: #333;
+    }
+
+    .requisiciones-container {
+        max-width: 100%;
+        margin: 0;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .requisiciones-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .titulo-principal {
+        color: var(--req-primary);
+        font-size: 2.2em;
+        margin-bottom: 10px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .descripcion {
+        color: #666;
+        font-size: 1.1em;
+    }
+
+    .requisiciones-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .requisicion-card {
+        background: var(--req-bg);
+        border-radius: 16px;
+        padding: 30px 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #e8eeff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .requisicion-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(35, 56, 120, 0.1);
+        border-color: var(--req-secondary);
+    }
+
+    /* Tarjeta destacada (General) */
+    .requisicion-card.general {
+        background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+        border: 2px solid var(--req-secondary);
+    }
+    
+    .requisicion-card.general .requisicion-titulo {
+        color: var(--req-primary);
+    }
+
+    .requisicion-icono {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    }
+
+    .requisicion-titulo {
+        color: var(--req-secondary);
+        font-size: 1.4em;
+        margin-bottom: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .requisicion-descripcion {
+        color: #555;
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+
+    .requisicion-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 25px;
+        background: var(--req-secondary);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        width: 80%;
+        justify-content: center;
+    }
+
+    .requisicion-btn:hover {
+        background: var(--req-primary);
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(35, 56, 120, 0.2);
+    }
+
+    .requisiciones-footer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+
+    .nota-footer {
+        color: #888;
+        font-size: 0.9em;
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .requisiciones-container {
+            padding: 25px 15px;
+        }
+
+        .titulo-principal {
+            font-size: 1.8em;
+        }
+
+        .requisiciones-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
