@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Claudia paola mancha Gómez - IDECF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+
+        .student-info-container {
+            width: 100%;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        /* Card de Información del Alumno */
+        .student-card {
+            background: linear-gradient(135deg, #6D0757 0%, #8B0969 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(109, 7, 87, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .student-card-title {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: -0.3px;
+        }
+
+        .student-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .student-field {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .student-field:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .student-field label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .student-field span {
+            display: block;
+            color: white;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        /* Secciones Expandibles */
+        .expandable-section {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .expandable-section:hover {
+            border-color: #6D0757;
+            box-shadow: 0 4px 12px rgba(109, 7, 87, 0.15);
+        }
+
+        .section-toggle {
+            width: 100%;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: none;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .section-toggle:hover {
+            background: linear-gradient(135deg, #6D0757 0%, #8B0969 100%);
+        }
+
+        .section-toggle:hover .section-title,
+        .section-toggle:hover .toggle-icon {
+            color: white;
+        }
+
+        .section-toggle.active {
+            background: linear-gradient(135deg, #6D0757 0%, #8B0969 100%);
+            border-bottom-color: #550545;
+        }
+
+        .section-toggle.active .section-title,
+        .section-toggle.active .toggle-icon {
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1em;
+            font-weight: 700;
+            color: #6D0757;
+            transition: color 0.3s ease;
+            letter-spacing: -0.2px;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #6D0757;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .section-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+        }
+
+        .section-content.active {
+            padding: 18px;
+            max-height: 2000px;
+        }
+
+        .section-intro {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #6D0757;
+        }
+
+        .section-intro p {
+            color: #475569;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .shortcode-placeholder {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px dashed #cbd5e1;
+            text-align: center;
+            color: #64748b;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .student-info-container {
+                padding: 0 8px;
+            }
+
+            .student-card {
+                padding: 15px;
+            }
+
+            .student-card-title {
+                font-size: 1.1em;
+            }
+
+            .student-fields {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .section-toggle {
+                padding: 12px 15px;
+            }
+
+            .section-title {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .student-info-container {
+                padding: 0 5px;
+            }
+
+            .student-card {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .student-card-title {
+                font-size: 1em;
+            }
+
+            .student-field {
+                padding: 10px;
+            }
+
+            .section-toggle {
+                padding: 10px 12px;
+            }
+
+            .section-content.active {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="student-info-container">
+        <!-- Card de Información del Alumno -->
+        <div class="student-card">
+            <h2 class="student-card-title">📋 Información del Alumno</h2>
+            <div class="student-fields">
+                <div class="student-field">
+                    <label>Correo electrónico:</label>
+                    <span id="student-email">Paolamancha1@gmail.com</span>
+                </div>
+                <div class="student-field">
+                    <label>Alumno:</label>
+                    <span id="student-name">Claudia paola mancha Gómez</span>
+                </div>
+                <div class="student-field">
+                    <label>Número de alumno:</label>
+                    <span id="student-code">DCFG8108</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 1: Registro de Pagos -->
+        <div class="expandable-section">
+            <button class="section-toggle" onclick="toggleSection(this)">
+                <span class="section-title">💳 Registro de Pagos</span>
+                <span class="toggle-icon">▼</span>
+            </button>
+            <div class="section-content">
+                <div class="shortcode-placeholder">
+                    [elementor-template id="5713"]
+                </div>
+                <div class="shortcode-placeholder" style="margin-top: 12px;">
+                    [table id=<span class="payment-code">PDCFG8108</span> /]
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Calificación Total -->
+        <div class="expandable-section">
+            <button class="section-toggle" onclick="toggleSection(this)">
+                <span class="section-title">📊 Calificación Total</span>
+                <span class="toggle-icon">▼</span>
+            </button>
+            <div class="section-content">
+                <div class="shortcode-placeholder">
+                    [elementor-template id="5715"]
+                </div>
+                <div class="shortcode-placeholder" style="margin-top: 12px;">
+                    [table id=Calificaciones /]
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 3: Calificaciones de Exámenes -->
+        <div class="expandable-section">
+            <button class="section-toggle" onclick="toggleSection(this)">
+                <span class="section-title">📝 Calificaciones de Exámenes</span>
+                <span class="toggle-icon">▼</span>
+            </button>
+            <div class="section-content">
+                <div class="shortcode-placeholder">
+                    [elementor-template id="5714"]
+                </div>
+                <div class="shortcode-placeholder" style="margin-top: 12px;">
+                    [elementor-template id="458"]
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 4: Registro de Terapia -->
+        <div class="expandable-section">
+            <button class="section-toggle" onclick="toggleSection(this)">
+                <span class="section-title">🩺 Registro de Terapia</span>
+                <span class="toggle-icon">▼</span>
+            </button>
+            <div class="section-content">
+                <div class="shortcode-placeholder">
+                    [elementor-template id="5716"]
+                </div>
+                <div class="shortcode-placeholder" style="margin-top: 12px;">
+                    [table id=Terapias /]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle de secciones expandibles
+        function toggleSection(button) {
+            const content = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+
+            // Toggle estado
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+
+        // Función para cargar datos del alumno (desde CSV o API)
+        function loadStudentData(studentData) {
+            // Actualizar información del alumno
+            document.getElementById('student-email').textContent = studentData.email || 'No disponible';
+            document.getElementById('student-name').textContent = studentData.nombre || 'No disponible';
+            document.getElementById('student-code').textContent = studentData.codigo || 'No disponible';
+
+            // Actualizar código de pagos (P + código)
+            const paymentCode = 'P' + (studentData.codigo || 'DCFG8108');
+            const paymentCodeElements = document.querySelectorAll('.payment-code');
+            paymentCodeElements.forEach(el => {
+                el.textContent = paymentCode;
+            });
+        }
+
+        // Ejemplo de uso con datos de prueba
+        // Descomentar para probar con datos reales
+        /*
+        const studentDataExample = {
+            email: 'juan.perez@ejemplo.com',
+            nombre: 'Juan Pérez García',
+            codigo: 'DCFG8108'
+        };
+        loadStudentData(studentDataExample);
+        */
+
+        // Función para cargar desde CSV
+        function loadFromCSV(csvData) {
+            // Parsear CSV
+            const lines = csvData.trim().split('\n');
+            const headers = lines[0].split(',');
+
+            // Obtener código de alumno actual (puede venir de parámetro URL o sesión)
+            const currentStudentCode = getCurrentStudentCode();
+
+            // Buscar alumno en CSV
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',');
+                const studentData = {};
+                headers.forEach((header, index) => {
+                    studentData[header.trim()] = values[index]?.trim();
+                });
+
+                if (studentData.codigo === currentStudentCode) {
+                    loadStudentData(studentData);
+                    break;
+                }
+            }
+        }
+
+        // Función auxiliar para obtener código de alumno actual
+        function getCurrentStudentCode() {
+            // Puede obtenerlo de:
+            // 1. Parámetro URL: ?codigo=DCFG8108
+            // 2. LocalStorage
+            // 3. Variable global de WordPress
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('codigo') || 'DCFG8108';
+        }
+
+        // Event listener para cerrar otras secciones al abrir una (opcional)
+        // Descomenta si quieres que solo una sección esté abierta a la vez
+        /*
+        document.querySelectorAll('.section-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.section-toggle').forEach(otherButton => {
+                    if (otherButton !== button && otherButton.classList.contains('active')) {
+                        otherButton.click();
+                    }
+                });
+            });
+        });
+        */
+    </script>
+</body>
+
+</html>
