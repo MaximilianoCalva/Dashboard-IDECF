@@ -74,3 +74,7 @@ __pycache__/
 .Python
 env/
 venv/
+
+# Datos sensibles de alumnos
+Dashboard/Seccion 02/alumnos-dcf-todas-generaciones.csv
+Dashboard/Seccion 02/alumnos-*.csv

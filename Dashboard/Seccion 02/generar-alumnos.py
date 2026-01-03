@@ -10,10 +10,13 @@ import os
 import sys
 from pathlib import Path
 
-# Configuración
-CSV_FILE = 'alumnos-dcf-todas-generaciones.csv'
-TEMPLATE_FILE = 'seccion-02-informacion-alumno-idecf.html'
-OUTPUT_DIR = 'alumnos-generados'
+# Obtener el directorio donde está el script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Configuración - usar rutas absolutas basadas en la ubicación del script
+CSV_FILE = os.path.join(SCRIPT_DIR, 'alumnos-dcf-todas-generaciones.csv')
+TEMPLATE_FILE = os.path.join(SCRIPT_DIR, 'seccion-02-informacion-alumno-idecf.html')
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'alumnos-generados')
 
 def read_csv(csv_path):
     """Lee el archivo CSV consolidado y retorna lista de alumnos"""

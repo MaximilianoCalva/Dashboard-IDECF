@@ -166,7 +166,77 @@ Todos los componentes HTML de este proyecto están diseñados para ser implement
 
 ---
 
+## 🎓 Sistema de Dashboards de Alumnos
+
+### Ubicación
+`Dashboard/Seccion 02/`
+
+### Archivos Principales
+- **`seccion-02-informacion-alumno-idecf.html`** - Template base del dashboard
+- **`generar-alumnos.py`** - Generador automático de dashboards personalizados
+- **`alumnos-dcf-todas-generaciones.csv`** - Base de datos de alumnos (NO se sube a GitHub)
+- **`alumnos-ejemplo.csv`** - Plantilla de ejemplo para GitHub
+
+### Características del Dashboard de Alumno
+
+**Card de Información:**
+- Correo electrónico
+- Nombre completo  
+- Número de alumno
+
+**Secciones Expandibles (Show/Hide):**
+1. 💳 **Registro de Pagos** - Tabla dinámica por alumno
+2. 📊 **Calificación Total** - Calificaciones generales
+3. 📝 **Calificaciones de Exámenes** - Resultados de exámenes
+4. 🩺 **Registro de Terapia** - Historial de terapias
+
+### Uso del Generador
+
+**Ejecutar desde cualquier ubicación:**
+```bash
+python3 /ruta/completa/Dashboard/Seccion\ 02/generar-alumnos.py
+```
+
+El script encuentra automáticamente los archivos necesarios.
+
+**Resultado:**
+- Genera 163 archivos HTML personalizados
+- Carpeta de salida: `alumnos-generados/`
+- Cada archivo tiene datos pre-cargados del alumno
+
+### Integración con Elementor
+
+**Shortcodes utilizados:**
+- `[elementor-template id="5713"]` - Intro registro de pagos
+- `[elementor-template id="5714"]` - Intro calificaciones exámenes  
+- `[elementor-template id="5715"]` - Intro calificación total
+- `[elementor-template id="5716"]` - Intro registro terapia
+- `[elementor-template id="458"]` - Contenido exámenes
+
+**Tablas TablePress:**
+- `P{CODIGO}` - Tabla de pagos individual (ej: PPDCF001)
+- `Calificaciones` - Tabla compartida
+- `Terapias` - Tabla compartida
+
+### Privacidad y Seguridad
+
+⚠️ **Datos sensibles protegidos:**
+- El archivo `alumnos-dcf-todas-generaciones.csv` contiene correos reales
+- Está en `.gitignore` y NO se sube a GitHub
+- La carpeta `alumnos-generados/` también está excluida
+- Solo se sube el template base y el archivo de ejemplo
+
+### Estadísticas del Sistema
+
+- **Total de alumnos:** 163
+- **Generaciones:** G01 a G12
+- **Programa:** Diplomado en Constelaciones Familiares (DCF)
+- **Archivos generados:** 163 HTMLs personalizados
+
+---
+
 ## Última Actualización
 
-**Fecha:** 2 de enero de 2026  
-**Versión:** 3.0
+**Fecha:** 3 de enero de 2026  
+**Versión:** 4.0
+
