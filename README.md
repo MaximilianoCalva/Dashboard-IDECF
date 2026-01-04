@@ -10,8 +10,8 @@
 ## SEO y Metadata
 
 ### Dashboard (Panel de Estudiantes)
-**Título del Sitio:** IDECF - Mi Dashboard | Plataforma de Aprendizaje  
-**Descripción Corta:** Accede a tu plataforma de aprendizaje en IDECF. Consulta tus diplomados, cursos, certificados y avanza en tu formación.
+**Título del Sitio:** IDECF - Panel de Alumnos | Constelaciones Familiares Internacional
+**Descripción Corta:** Acceso a la plataforma educativa del Instituto Internacional de Constelaciones Familiares. Gestiona tus cursos, pagos y certificaciones en línea.
 
 ## Colores Institucionales
 
@@ -28,215 +28,110 @@
 - **Advertencia (Amarillo):** `#f59e0b`
 - **Peligro (Rojo):** `#ef4444`
 
+## Contacto
+
+**WhatsApp Soporte:** +52 1 33 3405 4655  
+**URL WhatsApp:** https://wa.me/5213334054655  
+**Canal WhatsApp:** https://whatsapp.com/channel/0029Vb6g37Z3bbV3WXetDx2J
+
 ## URLs del Panel
 
 - **Mi Cuenta:** https://panel.idecf.com/mi-cuenta/
 - **Iniciar Sesión:** https://panel.idecf.com/iniciar-sesion/
 - **Panel Access:** https://panel.idecf.com/panel-access/
 
+## Componentes: Headers & Navegación
+
+### Headers (Optimizados Tablet/Mobile 1024px)
+Sistema de headers responsivos con menú hamburguesa para dispositivos con ancho menor a 1024px (tablets y móviles).
+
+#### 1. Header Logged In (Usuario Autenticado)
+**Archivo:** `Header/header-logged-in-IDECF.html`
+
+- **Marca:** Logo/Texto "IDECF" clickeable (redirige a https://idecf.com).
+- **Desktop (>1024px):** Botones visibles:
+  - 📊 Dashboard
+  - 💬 Soporte (WhatsApp)
+  - 🚪 Cerrar Sesión
+- **Tablet/Móvil (≤1024px):** Menú hamburguesa lateral con overlay.
+
+#### 2. Header Logged Out (Usuario No Autenticado)
+**Archivo:** `Header/header-logged-out-IDECF.html`
+
+- **Marca:** Logo/Texto clickeable.
+- **Acción:** Botón "Acceso a tu diplomado".
+- **Responsive:** Menú hamburguesa en tablet/móvil.
+
+#### 3. Header Web Principal
+**Archivo:** `header-idecf.html` (en repo web)
+- Navegación completa del sitio web.
+- Breakpoint 1024px para menú móvil.
+- Dropdowns responsivos.
+
+### Implementación Técnica
+- **Breakpoint JS/CSS:** 1024px.
+- **Z-Index:** Header (1000), Overlay (998), Menú Lateral (999).
+
 ---
 
-## 📋 Estructura de Sección Inicio
+## Estructura de Sección Inicio (Dashboard)
 
-La sección inicio del Dashboard IDECF está organizada en **13 componentes** que siguen un flujo lógico de navegación:
+La sección inicio del Dashboard IDECF está organizada en **13 componentes**:
 
 ### 1️⃣ Header y Bienvenida
-- **01-dashboard-inicio-IDECF.html** - Cápsula de título "DASHBOARD" con indicador de inicio
-- **02-bienvenida-IDECF.html** - Mensaje de bienvenida personalizado
+- **01-dashboard-inicio-IDECF.html** - Título "DASHBOARD".
+- **02-bienvenida-IDECF.html** - Mensaje de bienvenida.
 
-### 2️⃣ Avisos para Administrativos y Docentes
-- **03-aviso-admin-docentes-IDECF.html** 👥 - Aviso de acceso para administrativos y docentes (con flecha)
-- **04-accesos-rapidos-IDECF.html** ⚡ - Accesos rápidos a herramientas principales
+### 2️⃣ Avisos y Accesos
+- **03-aviso-admin-docentes-IDECF.html** 👥 - Aviso docentes.
+- **04-accesos-rapidos-IDECF.html** ⚡ - Accesos rápidos.
+- **05-aviso-solo-visualizacion-IDECF.html** 👁️ - Solo visualización.
+- **06-reglamento-IDECF.html** - Reglamento.
+- **07-plataforma-inactiva-IDECF.html** - Aviso inactiva.
 
-### 3️⃣ Información Institucional
-- **05-aviso-solo-visualizacion-IDECF.html** 👁️ - Aviso de visualización con opción de requisición
-- **06-reglamento-IDECF.html** - Visualizador del reglamento institucional
-- **07-plataforma-inactiva-IDECF.html** - Aviso de plataforma inactiva
+### 3️⃣ Sección Administrativa
+- **08-aviso-solo-administrativos-IDECF.html** 🔒 - Aviso admin.
+- **09-informacion-chatbot-IDECF.html** - Chatbot.
+- **10-oferta-activa-IDECF.html** - Tabla oferta activa.
+- **11-requisiciones-IDECF.html** 📋 - Formularios requisiciones.
+- **12-correos-activos-IDECF.html** 📧 - Correos activos.
 
-### 4️⃣ Sección Administrativa
-- **08-aviso-solo-administrativos-IDECF.html** 🔒 - Aviso de acceso restringido a administrativos (con flecha)
-- **09-informacion-chatbot-IDECF.html** - Información del chatbot institucional
-- **10-oferta-activa-IDECF.html** - Tabla de diplomados, cursos y eventos activos
-- **11-requisiciones-IDECF.html** 📋 - Formularios de requisiciones
-- **12-correos-activos-IDECF.html** 📧 - Lista de cuentas de correo activas
-
-### 5️⃣ Sección Estudiantil
-- **13-aviso-dashboard-estudiantil-IDECF.html** 📚 - Aviso de visualización estudiantil (con flecha)
+### 4️⃣ Sección Estudiantil
+- **13-aviso-dashboard-estudiantil-IDECF.html** 📚 - Aviso estudiantil.
 
 ---
 
-## 🎨 Componentes de Avisos
+## Recursos Adicionales (Extras)
 
-### Avisos con Flecha Animada ⬇️
-1. **03-aviso-admin-docentes-IDECF.html** - Color secundario
-2. **08-aviso-solo-administrativos-IDECF.html** - Rojo (#dc3545)
-3. **13-aviso-dashboard-estudiantil-IDECF.html** - Color primario
+### Carpeta: `Extras/`
+**Archivo principal:** `extras-grid-idecf.html`
 
-### Avisos sin Flecha
-4. **05-aviso-solo-visualizacion-IDECF.html** - Amarillo (#ffc107)
-
----
-
-## 📊 Componentes Principales
-
-### Tablas y Visualizadores
-- **10-oferta-activa-IDECF.html** - Tabla dinámica conectada a Google Sheets
-- **12-correos-activos-IDECF.html** - Tabla con cuentas de correo y estadísticas
-
-### Formularios
-- **11-requisiciones-IDECF.html** - Tarjetas con enlaces a Google Forms
-
----
-
-## 🎯 Flujo de Navegación
-
-```
-┌─────────────────────────────────────┐
-│  01 - Dashboard Inicio              │
-│  02 - Bienvenida                    │
-└─────────────────────────────────────┘
-              ↓
-┌─────────────────────────────────────┐
-│  SECCIÓN ADMIN/DOCENTES             │
-│  03 - Aviso Admin/Docentes 👥⬇️     │
-│  04 - Accesos Rápidos ⚡            │
-│  05 - Aviso Solo Visualización 👁️  │
-│  06 - Reglamento                    │
-│  07 - Plataforma Inactiva           │
-└─────────────────────────────────────┘
-              ↓
-┌─────────────────────────────────────┐
-│  SECCIÓN ADMINISTRATIVA             │
-│  08 - Aviso Solo Administrativos🔒⬇️│
-│  09 - Información Chatbot           │
-│  10 - Oferta Activa (Tabla)         │
-│  11 - Requisiciones                 │
-│  12 - Correos Activos               │
-└─────────────────────────────────────┘
-              ↓
-┌─────────────────────────────────────┐
-│  SECCIÓN ESTUDIANTIL                │
-│  13 - Aviso Dashboard Estudiantil📚⬇│
-└─────────────────────────────────────┘
-```
-
----
-
-## 🛠️ Plataforma y Tecnología
-
-### Stack Tecnológico
-- **CMS**: WordPress
-- **LMS**: LearnDash / Tutor LMS
-- **Constructor**: Elementor Pro
-- **Hosting**: https://panel.idecf.com
-
-### Implementación de Componentes HTML
-
-Todos los componentes HTML de este proyecto están diseñados para ser implementados en **Elementor** usando el widget HTML.
-
-#### Cómo Usar en Elementor:
-
-1. **Editar Página/Template**
-   - Ir a la página del dashboard que deseas editar
-   - Abrir con Elementor
-
-2. **Agregar Widget HTML**
-   - Buscar "HTML" en el panel de widgets de Elementor
-   - Arrastrar el widget a la sección deseada
-
-3. **Copiar y Pegar Código**
-   - Abrir el archivo HTML del componente
-   - Copiar TODO el contenido (incluyendo `<style>` y `<script>`)
-   - Pegar en el widget HTML de Elementor
-
-4. **Guardar y Publicar**
-   - Guardar cambios en Elementor
-   - Publicar la página
-
----
-
-## 📝 Notas Importantes
-
-- ✅ Todos los archivos usan los colores institucionales de IDECF
-- ✅ Diseño responsive para móviles y tablets
-- ✅ Avisos con flechas animadas para mejorar UX
-- ✅ Numeración secuencial del 01 al 13
-- ✅ Sufijo `-IDECF` en todos los archivos para identificación
-- ✅ Archivo consolidado disponible: `seccion-iniicio.html`
+Grid de recursos con 6 secciones idéntico al sistema central pero con colores IDECF (#6D0757).
 
 ---
 
 ## 🎓 Sistema de Dashboards de Alumnos
 
-### Ubicación
-`Dashboard/Seccion 02/`
+### Ubicación: `Dashboard/Seccion 02/`
 
-### Archivos Principales
-- **`seccion-02-informacion-alumno-idecf.html`** - Template base del dashboard
-- **`generar-alumnos.py`** - Generador automático de dashboards personalizados
-- **`alumnos-dcf-todas-generaciones.csv`** - Base de datos de alumnos (NO se sube a GitHub)
-- **`alumnos-ejemplo.csv`** - Plantilla de ejemplo para GitHub
+- **`seccion-02-informacion-alumno-idecf.html`**: Template base.
+- **`generar-alumnos.py`**: Script de generación.
+- **`alumnos-generados/`**: 163 HTMLs generados (ignorado en git).
 
-### Características del Dashboard de Alumno
-
-**Card de Información:**
-- Correo electrónico
-- Nombre completo  
-- Número de alumno
-
-**Secciones Expandibles (Show/Hide):**
-1. 💳 **Registro de Pagos** - Tabla dinámica por alumno
-2. 📊 **Calificación Total** - Calificaciones generales
-3. 📝 **Calificaciones de Exámenes** - Resultados de exámenes
-4. 🩺 **Registro de Terapia** - Historial de terapias
-
-### Uso del Generador
-
-**Ejecutar desde cualquier ubicación:**
-```bash
-python3 /ruta/completa/Dashboard/Seccion\ 02/generar-alumnos.py
-```
-
-El script encuentra automáticamente los archivos necesarios.
-
-**Resultado:**
-- Genera 163 archivos HTML personalizados
-- Carpeta de salida: `alumnos-generados/`
-- Cada archivo tiene datos pre-cargados del alumno
-
-### Integración con Elementor
-
-**Shortcodes utilizados:**
-- `[elementor-template id="5713"]` - Intro registro de pagos
-- `[elementor-template id="5714"]` - Intro calificaciones exámenes  
-- `[elementor-template id="5715"]` - Intro calificación total
-- `[elementor-template id="5716"]` - Intro registro terapia
-- `[elementor-template id="458"]` - Contenido exámenes
-
-**Tablas TablePress:**
-- `P{CODIGO}` - Tabla de pagos individual (ej: PPDCF001)
-- `Calificaciones` - Tabla compartida
-- `Terapias` - Tabla compartida
-
-### Privacidad y Seguridad
-
-⚠️ **Datos sensibles protegidos:**
-- El archivo `alumnos-dcf-todas-generaciones.csv` contiene correos reales
-- Está en `.gitignore` y NO se sube a GitHub
-- La carpeta `alumnos-generados/` también está excluida
-- Solo se sube el template base y el archivo de ejemplo
-
-### Estadísticas del Sistema
-
-- **Total de alumnos:** 163
-- **Generaciones:** G01 a G12
-- **Programa:** Diplomado en Constelaciones Familiares (DCF)
-- **Archivos generados:** 163 HTMLs personalizados
+**Funcionalidades:**
+1. Card de Información (Correo, Nombre, No. Alumno).
+2. Secciones expandibles: Pagos, Calificaciones, Exámenes, Terapia.
 
 ---
 
-## Última Actualización
+## 🛠️ Cómo Usar en Elementor
 
-**Fecha:** 3 de enero de 2026  
-**Versión:** 4.0
+1. **Editar Página**: Usar Elementor.
+2. **Widget HTML**: Arrastrar widget HTML.
+3. **Pegar Código**: Copiar TODO el contenido del archivo HTML.
+4. **Guardar**: Publicar cambios.
 
+---
+
+**Versión:** 4.1 (Update Headers 1024px)
+**Fecha:** Enero 2026
