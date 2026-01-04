@@ -1,0 +1,77 @@
+<style>
+    .idecf-access-message {
+        background: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(109, 7, 87, 0.15);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        padding: 50px 30px;
+        margin: 0 auto;
+    }
+
+    .idecf-access-message .message-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 24px;
+        background: rgba(239, 68, 68, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .idecf-access-message .message-icon svg {
+        width: 40px;
+        height: 40px;
+        stroke: #ef4444;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .idecf-access-message h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #6D0757;
+        margin-bottom: 16px;
+    }
+
+    .idecf-access-message p {
+        font-size: 16px;
+        color: #6b7280;
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
+
+    .idecf-access-message .btn-action {
+        display: inline-block;
+        background: linear-gradient(135deg, #6D0757 0%, #8E0970 100%);
+        color: #FFFFFF;
+        padding: 14px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
+        .idecf-access-message {
+            padding: 40px 20px;
+        }
+    }
+</style>
+
+<div class="idecf-access-message">
+    <div class="message-icon">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+    </div>
+    <h2>Acceso Restringido</h2>
+    <p>No tiene permiso para ver esta página.</p>
+    <a href="https://idecf.com/" class="btn-action">Volver al Inicio</a>
+</div>
