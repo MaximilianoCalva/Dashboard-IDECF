@@ -1,0 +1,203 @@
+<div class="chatbot-recursos-container">
+    <div class="recursos-header">
+        <h2 class="titulo-principal">🤖 Chatbot IDECF - Recursos</h2>
+        <p class="descripcion">Accede a todos los recursos y herramientas del Chatbot del Instituto de
+            Biodesprogramación</p>
+    </div>
+
+    <div class="recursos-grid">
+        <!-- Recurso 1: Chatbot -->
+        <div class="recurso-card chatbot">
+            <div class="recurso-icono">💬</div>
+            <h3 class="recurso-titulo">Chatbot IDECF</h3>
+            <p class="recurso-descripcion">Interactúa con nuestro asistente virtual inteligente</p>
+            <a href="https://n8n.srv1017270.hstgr.cloud/webhook/c36c76ea-5f98-4c45-8c8e-844c0c3671f9/chat"
+                class="recurso-btn" target="_blank">
+                Abrir Chatbot
+            </a>
+        </div>
+
+        <!-- Recurso 2: Mejoras -->
+        <div class="recurso-card mejoras">
+            <div class="recurso-icono">📊</div>
+            <h3 class="recurso-titulo">Mejoras del Chatbot</h3>
+            <p class="recurso-descripcion">Hoja de cálculo con el registro de mejoras y actualizaciones</p>
+            <a href="https://docs.google.com/spreadsheets/d/1TogVyJPpMoKNQcGSM9h0lNS9Vel_7PwxNvUK4Q_K_-I/edit?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Mejoras
+            </a>
+        </div>
+
+        <!-- Recurso 3: Memoria -->
+        <div class="recurso-card memoria">
+            <div class="recurso-icono">📝</div>
+            <h3 class="recurso-titulo">Memoria del Chatbot</h3>
+            <p class="recurso-descripcion">Documento con la información base y conocimiento del bot</p>
+            <a href="https://docs.google.com/document/d/1PTwsWKzbzQ3DnIXvqZRt02PTVxLlOQsTRn9KqdmKMhU/edit?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Memoria
+            </a>
+        </div>
+
+        <!-- Recurso 4: Memoria Activa -->
+        <div class="recurso-card memoria-activa">
+            <div class="recurso-icono">⚡</div>
+            <h3 class="recurso-titulo">Memoria Activa en Bot</h3>
+            <p class="recurso-descripción">Archivo de memoria actualmente implementado en el chatbot</p>
+            <a href="https://drive.google.com/file/d/1SG8yHP9VuC5kCbIi0r2G1mnzjuYJ1nCC/view?usp=sharing"
+                class="recurso-btn" target="_blank">
+                Ver Memoria Activa
+            </a>
+        </div>
+    </div>
+
+    <div class="recursos-footer">
+        <p class="nota-footer">
+            💙 Estos recursos están diseñados para optimizar y mejorar continuamente la experiencia del usuario con
+            nuestro chatbot.
+        </p>
+    </div>
+</div>
+
+<style>
+    .chatbot-recursos-container {
+        max-width: 100%;
+        margin: 0;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .recursos-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .titulo-principal {
+        color: #C1272D;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .descripcion {
+        color: #666;
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .recursos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .recurso-card {
+        background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .recurso-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(34, 61, 125, 0.15);
+    }
+
+    .recurso-card.chatbot {
+        border-color: #223d7d;
+    }
+
+    .recurso-card.mejoras {
+        border-color: #4CAF50;
+    }
+
+    .recurso-card.memoria {
+        border-color: #FF9800;
+    }
+
+    .recurso-card.memoria-activa {
+        border-color: #9C27B0;
+    }
+
+    .recurso-icono {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .recurso-titulo {
+        color: #C1272D;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .recurso-descripcion {
+        color: #555;
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    .recurso-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #333333;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(34, 61, 125, 0.3);
+    }
+
+    .recurso-btn:hover {
+        background: #3399FF;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(34, 61, 125, 0.4);
+        color: white;
+    }
+
+    .recursos-footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #e8eeff;
+        text-align: center;
+    }
+
+    .nota-footer {
+        color: #C1272D;
+        font-size: 1.1em;
+        line-height: 1.6;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .chatbot-recursos-container {
+            padding: 25px;
+        }
+
+        .titulo-principal {
+            font-size: 1.8em;
+        }
+
+        .recursos-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .recurso-card {
+            padding: 25px;
+        }
+    }
+</style>

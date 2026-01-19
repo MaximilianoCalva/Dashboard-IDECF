@@ -1,0 +1,176 @@
+<!-- Payment Hub Snippet -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    .pay-hub-snippet {
+        --ph-primary: #6366f1;
+        --ph-secondary: #ec4899;
+        --ph-bg-dark: #0f172a;
+        --ph-surface-dark: #1e293b;
+        --ph-text-light: #f8fafc;
+        --ph-text-dim: #94a3b8;
+        --ph-glass: rgba(30, 41, 59, 0.7);
+
+        font-family: 'Outfit', sans-serif;
+        color: var(--ph-text-light);
+        background-color: var(--ph-bg-dark);
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .pay-hub-snippet * {
+        box-sizing: border-box;
+    }
+
+    .pay-hub-snippet h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        background: linear-gradient(to right, #fff, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2;
+    }
+
+    .pay-hub-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .pay-hub-card {
+        background: var(--ph-glass);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 1.5rem;
+        padding: 3rem 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pay-hub-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Glow Effect on Hover */
+    .pay-hub-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top right, var(--glow-color), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .pay-hub-card:hover::before {
+        opacity: 0.1;
+    }
+
+    .pay-hub-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        z-index: 1;
+        transition: background 0.3s;
+    }
+
+    .pay-hub-card:hover .pay-hub-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .pay-hub-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--ph-text-light);
+        z-index: 1;
+    }
+
+    .pay-hub-desc {
+        color: var(--ph-text-dim);
+        font-size: 1rem;
+        line-height: 1.5;
+        z-index: 1;
+    }
+
+    .pay-hub-btn {
+        margin-top: auto;
+        padding: 0.75rem 2rem;
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-weight: 500;
+        font-size: 0.875rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.2s;
+        z-index: 1;
+    }
+
+    .pay-hub-card:hover .pay-hub-btn {
+        background: var(--glow-color);
+        border-color: var(--glow-color);
+        color: white;
+    }
+</style>
+
+<div class="pay-hub-snippet">
+    <h1>Centro de Pagos</h1>
+
+    <div class="pay-hub-grid">
+        <!-- Card Woocommerce -->
+        <a href="https://panel.idecf.com/administrativo/pagos-plataforma/" class="pay-hub-card"
+            style="--glow-color: #6366f1;">
+            <div class="pay-hub-icon" style="color: #6366f1;">
+                <!-- Shopping Cart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
+            <span class="pay-hub-title">Pagos Plataforma</span>
+            <span class="pay-hub-desc">Gestiona las ventas de cursos, pedidos y analíticas de Woocommerce en tiempo
+                real.</span>
+            <span class="pay-hub-btn">Ver Dashboard</span>
+        </a>
+
+        <!-- Card Stripe -->
+        <a href="https://panel.idecf.com/administrativo/pagos-stripe/" class="pay-hub-card"
+            style="--glow-color: #ec4899;">
+            <div class="pay-hub-icon" style="color: #ec4899;">
+                <!-- Credit Card Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+            </div>
+            <span class="pay-hub-title">Pagos Stripe</span>
+            <span class="pay-hub-desc">Supervisa transacciones, comisiones y transferencias directamente desde la
+                pasarela.</span>
+            <span class="pay-hub-btn">Ver Finanzas</span>
+        </a>
+    </div>
+</div>

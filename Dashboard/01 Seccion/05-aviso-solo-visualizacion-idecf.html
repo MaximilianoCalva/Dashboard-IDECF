@@ -1,0 +1,70 @@
+<div class="aviso-visualizacion">
+    <div class="aviso-icon">👁️</div>
+    <div class="aviso-content">
+        <h3 class="aviso-titulo">Solo Visualización</h3>
+        <p class="aviso-texto">Este apartado es solo una visualización. Si gustas generar un cambio, puedes
+            <strong>levantar una requisición</strong></p>
+    </div>
+</div>
+
+<style>
+    .aviso-visualizacion {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+        border-left: 5px solid #ffc107;
+        padding: 20px 25px;
+        border-radius: 12px;
+        margin: 20px 0;
+        box-shadow: 0 4px 12px rgba(255, 193, 7, 0.1);
+    }
+
+    .aviso-visualizacion .aviso-icon {
+        font-size: 2.5em;
+        flex-shrink: 0;
+    }
+
+    .aviso-visualizacion .aviso-content {
+        flex: 1;
+    }
+
+    .aviso-visualizacion .aviso-titulo {
+        color: #856404;
+        font-size: 1.3em;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+
+    .aviso-visualizacion .aviso-texto {
+        color: #856404;
+        font-size: 1em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .aviso-visualizacion .aviso-texto strong {
+        font-weight: 700;
+        color: #664d03;
+    }
+
+    @media (max-width: 768px) {
+        .aviso-visualizacion {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .aviso-visualizacion .aviso-icon {
+            font-size: 2em;
+        }
+
+        .aviso-visualizacion .aviso-titulo {
+            font-size: 1.2em;
+        }
+
+        .aviso-visualizacion .aviso-texto {
+            font-size: 0.95em;
+        }
+    }
+</style>

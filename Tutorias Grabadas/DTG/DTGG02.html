@@ -1,0 +1,250 @@
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: false,
+        }
+    }
+</script>
+
+<!-- Contenedor Principal (Widget Elementor) -->
+<div class="bg-white rounded-xl shadow-lg border border-gray-100 p-4 md:p-6 w-full max-w-7xl mx-auto font-sans">
+
+    <div class="flex flex-col lg:flex-row gap-6 h-auto lg:h-[600px]">
+
+        <!-- Columna 1: Reproductor de Video -->
+        <div class="w-full lg:w-2/3 flex flex-col">
+            <!-- Wrapper del Video (Aspect Ratio 16:9) -->
+            <div class="relative w-full pb-[56.25%] bg-black rounded-xl overflow-hidden shadow-md group">
+                <iframe id="mainPlayer" src="" class="absolute top-0 left-0 w-full h-full" frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Metadata del Video -->
+            <div class="mt-4 px-2">
+                <h2 id="mainTitle" class="text-xl md:text-2xl font-bold text-gray-800 leading-tight">Selecciona una
+                    clase</h2>
+                <div class="flex items-center gap-3 mt-1">
+                    <p id="mainDate" class="text-sm text-gray-500 font-medium">📅 --/--/----</p>
+                    <span class="text-gray-300">|</span>
+                    <p id="mainDocente" class="text-sm text-[#233878] font-medium">👨‍🏫 --</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna 2: Playlist y Buscador -->
+        <div
+            class="w-full lg:w-1/3 flex flex-col bg-gray-50 rounded-xl border border-gray-200 overflow-hidden h-[500px] lg:h-full">
+
+            <!-- Buscador Sticky -->
+            <div class="sticky top-0 bg-white p-4 z-10 border-b border-gray-200 shadow-sm">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="🔍 Buscar clase..."
+                        class="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-lg border border-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#233878] focus:border-transparent text-sm transition-all"
+                        onkeyup="filterPlaylist()">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Videos -->
+            <div class="playlist-items overflow-y-auto flex-1 custom-scrollbar" id="playlistItems">
+                <div class="p-8 text-center flex flex-col items-center justify-center h-full text-gray-400">
+                    <svg class="animate-spin h-8 w-8 mb-3 text-[#233878]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    <span class="text-sm font-medium">Cargando biblioteca...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom Scrollbar para la lista */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    /* Efecto de selección */
+    .playlist-item.active {
+        background-color: #eff6ff;
+        /* blue-50 */
+        border-left: 4px solid #233878;
+    }
+</style>
+
+<script>
+    // URL PROPORCIONADA POR EL USUARIO (Versión 4 - Cache Fix)
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzbr5gMZQGnY6ZHVncD0JUsgB0jQ97KOaVwcF8dez0vax37o4VXqvW0KhJnPNhuWAI_sA/exec";
+
+    // CAMBIAR AQUÍ EL NOMBRE DE LA PESTAÑA QUE QUIERES CARGAR EN ESTE HTML
+    const SHEET_NAME = "DTGG02";
+
+    let allVideos = []; // Variable global para el buscador
+
+    async function loadPlaylist() {
+        try {
+            const response = await fetch(`${WEB_APP_URL}?t=${new Date().getTime()}`);
+            const data = await response.json();
+
+            // Filtrar solo la pestaña deseada
+            if (data[SHEET_NAME]) {
+                // Usar orden original del Sheet pero INVERTIDO y FILTRANDO encabezados repetidos
+                allVideos = data[SHEET_NAME].filter(v => v.titulo && v.titulo !== "Título del Video").reverse();
+
+                renderItems(allVideos);
+
+                if (allVideos.length > 0) {
+                    // Para el player usamos el link directo
+                    updatePlayer(allVideos[0].vimeoUrl, allVideos[0].titulo, allVideos[0].fecha, allVideos[0].profesor);
+
+                    // Marcar el primero como activo visualmente
+                    setTimeout(() => {
+                        const firstItem = document.querySelector('.playlist-item');
+                        if (firstItem) firstItem.classList.add('active');
+                    }, 100);
+                }
+            } else {
+                document.getElementById('playlistItems').innerHTML = `<p class="p-4 text-red-500 text-center">No se encontró la pestaña "${SHEET_NAME}"</p>`;
+            }
+
+        } catch (error) {
+            console.error("Error cargando la lista:", error);
+            document.getElementById('playlistItems').innerHTML = `<p class="p-4 text-red-500 text-center">Error de conexión con la base de datos.</p>`;
+        }
+    }
+
+    // Función auxiliar para extraer ID de URL completa (Solo para miniaturas)
+    // Función auxiliar para extraer ID de URL completa (Solo para miniaturas)
+    function getVimeoId(url) {
+        if (!url) return null;
+        // Si es un número (ID directo del sheet)
+        if (typeof url === 'number' || !isNaN(url)) return url.toString();
+        // Si es string
+        const match = url.toString().match(/vimeo.*\/(\d+)/i);
+        return match ? match[1] : null;
+    }
+
+    function renderItems(videos) {
+        const container = document.getElementById('playlistItems');
+        container.innerHTML = "";
+
+        if (videos.length === 0) {
+            container.innerHTML = `<p class="p-8 text-gray-400 text-center text-sm">No se encontraron resultados.</p>`;
+            return;
+        }
+
+        videos.forEach((video, index) => {
+            // Obtenemos ID solo para la imagen
+            const vId = getVimeoId(video.vimeoUrl);
+
+            const item = document.createElement('div');
+            item.className = `playlist-item p-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer flex gap-3 transition-all duration-200 group relative`;
+
+            item.onclick = function () {
+                // Pasamos la URL completa al player
+                updatePlayer(video.vimeoUrl, video.titulo, video.fecha, video.profesor);
+
+                // Manejar clases activas
+                document.querySelectorAll('.playlist-item').forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+            };
+
+            // Si tenemos ID, mostramos thumbnail, si no, un placeholder gris
+            const imgStyle = vId ? `background-image: url('https://vumbnail.com/${vId}.jpg');` : 'background-color: #e5e7eb;';
+
+            // Badge para el primer video (El más reciente si la hoja está en orden cronológico)
+            const newBadge = index === 0 ? `<span class="absolute top-2 right-2 bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">NUEVA</span>` : '';
+
+            item.innerHTML = `
+                ${newBadge}
+                <div class="relative w-28 h-16 bg-gray-200 rounded-lg flex-shrink-0 bg-cover bg-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow" style="${imgStyle}">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                         <svg class="w-8 h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" /></svg>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0 flex flex-col justify-center py-1">
+                    <div class="text-xs font-semibold text-[#233878] mb-1 opacity-70 flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        ${video.fecha}
+                    </div>
+                    <div class="text-xs font-medium text-gray-500 mb-1">👨‍🏫 ${video.profesor || 'Docente no especificado'}</div>
+                    <div class="text-sm font-bold text-gray-700 leading-tight line-clamp-2 group-hover:text-[#233878] transition-colors">${video.titulo}</div>
+                </div>
+            `;
+            container.appendChild(item);
+        });
+    }
+
+    function filterPlaylist() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allVideos.filter(video =>
+            video.titulo.toLowerCase().includes(query) ||
+            video.fecha.toLowerCase().includes(query) ||
+            (video.profesor && video.profesor.toLowerCase().includes(query))
+        );
+        renderItems(filtered);
+    }
+
+    function updatePlayer(fullUrl, title, date, profesor) {
+        // Aseguramos que el link sea embeddable (player.vimeo.com)
+        let embedUrl = fullUrl;
+
+        // Si es un link normal de vimeo.com (no player.vimeo.com), o es un ID numérico
+        const vId = getVimeoId(fullUrl);
+        if (vId) {
+            embedUrl = `https://player.vimeo.com/video/${vId}`;
+        } else if (fullUrl && fullUrl.toString().includes('player.vimeo.com')) {
+            embedUrl = fullUrl;
+        }
+
+        const player = document.getElementById('mainPlayer');
+        if (player && embedUrl) {
+            const separator = embedUrl.includes('?') ? '&' : '?';
+            player.src = `${embedUrl}${separator}autoplay=1`;
+        }
+
+        const titleEl = document.getElementById('mainTitle');
+        if (titleEl) titleEl.innerText = title;
+
+        const dateEl = document.getElementById('mainDate');
+        if (dateEl) dateEl.innerText = `📅 ${date}`;
+
+        const docenteEl = document.getElementById('mainDocente');
+        if (docenteEl) docenteEl.innerText = `👨‍🏫 ${profesor || 'Docente no disponible'}`;
+
+        if (window.innerWidth < 1024) {
+            const playerContainer = document.getElementById('mainPlayer').parentElement;
+            playerContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    // Iniciar carga
+    loadPlaylist();
+</script>

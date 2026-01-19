@@ -1,0 +1,675 @@
+<!-- 
+  WIDGET DE ELEMENTOR - VISUALIZADOR DE DATOS EN TABLA COMPLETA
+  
+  INSTRUCCIONES:
+  1. En Elementor, arrastra un widget "HTML" a tu página
+  2. Pega todo este código en el widget
+  3. Guarda y visualiza
+-->
+
+<div id="data-visualizer-container">
+    <div id="loading-state" class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+    </div>
+
+    <div id="error-state" class="error-state" style="display: none;">
+        <div class="error-icon">⚠️</div>
+        <p class="error-message">Error al cargar los datos. Por favor, intenta de nuevo más tarde.</p>
+        <button id="retry-button" class="retry-button">Reintentar</button>
+    </div>
+
+    <div id="table-container" class="table-container" style="display: none;">
+        <h2 class="table-title">Diplomados, Talleres/Cursos y Eventos activos</h2>
+        <div class="table-scroll">
+            <table id="data-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th class="col-title">Diplomado/Curso/Taller/Evento</th>
+                        <th class="col-copy">Descripción</th>
+                        <th class="col-image">Imagen</th>
+                        <th class="col-video">Video</th>
+                        <th class="col-landing">Web de Aterrizaje</th>
+                        <th class="col-register">Web de Registro</th>
+                        <th class="col-thanks">Web de Gracias</th>
+                        <th class="col-stripe">Link de Stripe</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Las filas se generarán dinámicamente aquí -->
+                </tbody>
+            </table>
+            <div class="table-footer">
+                <p class="footer-note">📌 <strong>Importante:</strong> Favor de notificar por el grupo de la marca para
+                    la alta del diplomado, curso, taller o evento dentro del instituto.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Variables CSS - IDECF (Biología) - Colores Actualizados */
+    :root {
+        --primary-color: #C1272D;
+        --primary-hover: #333333;
+        --secondary-color: #3399FF;
+        --success-color: #059669;
+        --error-color: #dc2626;
+        --text-primary: #111827;
+        --text-secondary: #4b5563;
+        --bg-light: #f0f9ff;
+        --bg-white: #ffffff;
+        --border-color: #dbeafe;
+        --shadow-sm: 0 1px 2px 0 rgba(193, 39, 45, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(193, 39, 45, 0.1), 0 2px 4px -1px rgba(193, 39, 45, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(193, 39, 45, 0.1), 0 4px 6px -2px rgba(193, 39, 45, 0.05);
+        --border-radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset y estilos base */
+    #data-visualizer-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    #data-visualizer-container * {
+        box-sizing: border-box;
+    }
+
+    /* Estado de carga */
+    .loading-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        gap: 1.5rem;
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid var(--border-color);
+        border-top-color: var(--primary-color);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading-state p {
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    /* Estado de error */
+    .error-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .error-icon {
+        font-size: 4rem;
+        opacity: 0.8;
+    }
+
+    .error-message {
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        margin: 0;
+        max-width: 500px;
+    }
+
+    .retry-button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+    }
+
+    .retry-button:hover {
+        background: var(--primary-hover);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Contenedor de tabla */
+    .table-container {
+        width: 100%;
+        background: var(--bg-white);
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+        animation: fadeIn 0.6s ease-in-out;
+        overflow: hidden;
+        border: 2px solid var(--primary-color);
+    }
+
+    /* Título de la tabla */
+    .table-title {
+        margin: 0 0 2rem 0;
+        padding: 1.5rem 2rem;
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+        font-weight: 800;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Scroll horizontal */
+    .table-scroll {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+    }
+
+    .table-scroll::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    .table-scroll::-webkit-scrollbar-track {
+        background: var(--bg-light);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    .table-scroll::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 5px;
+    }
+
+    .table-scroll::-webkit-scrollbar-thumb:hover {
+        background: var(--text-secondary);
+    }
+
+    /* Tabla */
+    .data-table {
+        width: 100%;
+        min-width: 1400px;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .data-table thead {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .data-table thead th {
+        padding: 1.25rem 2rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        position: sticky;
+        top: 0;
+    }
+
+    .data-table thead th:first-child {
+        border-top-left-radius: 14px;
+    }
+
+    .data-table thead th:last-child {
+        border-top-right-radius: 14px;
+    }
+
+    .data-table tbody tr {
+        border-bottom: 1px solid var(--border-color);
+        transition: var(--transition);
+    }
+
+    .data-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .data-table tbody tr:hover {
+        background: linear-gradient(90deg, rgba(34, 61, 125, 0.05), rgba(45, 79, 158, 0.05));
+    }
+
+    .data-table tbody td {
+        padding: 1.5rem 2rem;
+        color: var(--text-primary);
+        vertical-align: middle;
+    }
+
+    /* Columnas específicas */
+    .col-title {
+        min-width: 250px;
+    }
+
+    .col-copy {
+        min-width: 300px;
+    }
+
+    .col-image {
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .col-video,
+    .col-landing,
+    .col-register,
+    .col-thanks,
+    .col-stripe {
+        min-width: 150px;
+        text-align: center;
+    }
+
+    /* Estilos de celdas */
+    .cell-title {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--primary-color);
+    }
+
+    .cell-copy {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .cell-image {
+        text-align: center;
+    }
+
+    .course-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+    }
+
+    .course-image:hover {
+        transform: scale(1.15);
+        box-shadow: var(--shadow-md);
+    }
+
+    .image-placeholder {
+        width: 80px;
+        height: 80px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        font-size: 2rem;
+        border-radius: 12px;
+    }
+
+    /* Botones de enlace */
+    .link-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .link-button-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .link-button-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        filter: brightness(1.1);
+    }
+
+    .link-button-secondary {
+        background: var(--bg-light);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+    }
+
+    .link-button-secondary:hover {
+        background: var(--bg-white);
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .link-button-success {
+        background: var(--success-color);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .link-button-success:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        filter: brightness(1.1);
+    }
+
+    .empty-cell {
+        color: var(--text-secondary);
+        font-style: italic;
+        font-size: 0.875rem;
+    }
+
+    .empty-cell-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        font-size: 0.875rem;
+        border: 1px dashed var(--border-color);
+        border-radius: 8px;
+        white-space: nowrap;
+        cursor: default;
+    }
+
+    /* Footer de la tabla */
+    .table-footer {
+        padding: 2rem 2.5rem;
+        background: var(--bg-light);
+        border-top: 2px solid var(--border-color);
+    }
+
+    .footer-note {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .footer-note strong {
+        color: var(--primary-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        #data-visualizer-container {
+            padding: 1rem 0.5rem;
+        }
+
+        .data-table {
+            min-width: 1200px;
+        }
+
+        .data-table thead th,
+        .data-table tbody td {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .course-image,
+        .image-placeholder {
+            width: 60px;
+            height: 60px;
+        }
+
+        .link-button {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        'use strict';
+
+        // URL de tu Apps Script (Ya configurada)
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJCWt7R5LFaYbkEN79oiHRtfdl7I57uC7SBJzFnJfi6PudPTUs6Qf_TWWwBzl8Q1eURw/exec';
+        const SHEET_NAME = 'IDECF';
+
+        // Referencias a elementos del DOM
+        const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        const tableContainer = document.getElementById('table-container');
+        const tableBody = document.getElementById('table-body');
+        const retryButton = document.getElementById('retry-button');
+
+        /**
+         * Función principal para cargar y mostrar los datos
+         */
+        async function loadData() {
+            try {
+                showLoading();
+
+                const url = `${APPS_SCRIPT_URL}?sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (!result.success) {
+                    throw new Error(result.error || 'Error desconocido al obtener los datos');
+                }
+
+                renderTable(result.data);
+
+            } catch (error) {
+                console.error('Error al cargar los datos:', error);
+                showError();
+            }
+        }
+
+        /**
+         * Renderiza la tabla con los datos obtenidos
+         */
+        function renderTable(data) {
+            if (!data || data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 3rem; color: var(--text-secondary);">No hay datos disponibles en este momento.</td></tr>';
+                showTable();
+                return;
+            }
+
+            tableBody.innerHTML = '';
+
+            data.forEach((item) => {
+                const row = createTableRow(item);
+                tableBody.appendChild(row);
+            });
+
+            showTable();
+        }
+
+        /**
+         * Crea una fila de tabla
+         */
+        function createTableRow(data) {
+            const row = document.createElement('tr');
+
+            // Columna 1: Título
+            const titleCell = document.createElement('td');
+            titleCell.className = 'cell-title';
+            titleCell.textContent = data.diplomadoCursoTallerOEvento || 'Sin título';
+            row.appendChild(titleCell);
+
+            // Columna 2: Descripción (Copy)
+            const copyCell = document.createElement('td');
+            copyCell.className = 'cell-copy';
+            copyCell.textContent = data.copyDeDiplomadoCursoTallerOEvento || 'Sin descripción';
+            row.appendChild(copyCell);
+
+            // Columna 3: Imagen
+            const imageCell = document.createElement('td');
+            imageCell.className = 'cell-image';
+
+            if (data.imagenDeDiplomadoCursoTallerOEvento && data.imagenDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const img = document.createElement('img');
+                img.className = 'course-image';
+                img.src = data.imagenDeDiplomadoCursoTallerOEvento;
+                img.alt = data.diplomadoCursoTallerOEvento || 'Imagen del curso';
+                img.loading = 'lazy';
+                img.onerror = function () {
+                    this.parentElement.innerHTML = '<div class="image-placeholder">📚</div>';
+                };
+                imageCell.appendChild(img);
+            } else {
+                imageCell.innerHTML = '<div class="image-placeholder">📚</div>';
+            }
+            row.appendChild(imageCell);
+
+            // Columna 4: Video
+            const videoCell = document.createElement('td');
+            if (data.videoDeDiplomadoCursoTallerOEvento && data.videoDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const videoLink = createLink(data.videoDeDiplomadoCursoTallerOEvento, '🎥 Ver', 'link-button link-button-secondary');
+                videoCell.appendChild(videoLink);
+            } else {
+                const emptyLink = createEmptyLink();
+                videoCell.appendChild(emptyLink);
+            }
+            row.appendChild(videoCell);
+
+            // Columna 5: Web de Aterrizaje
+            const landingCell = document.createElement('td');
+            if (data.webDeAterrizajeDeDiplomadoCursoTallerOEvento && data.webDeAterrizajeDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const landingLink = createLink(data.webDeAterrizajeDeDiplomadoCursoTallerOEvento, '� Visitar', 'link-button link-button-secondary');
+                landingCell.appendChild(landingLink);
+            } else {
+                const emptyLink = createEmptyLink();
+                landingCell.appendChild(emptyLink);
+            }
+            row.appendChild(landingCell);
+
+            // Columna 6: Web de Registro
+            const registerCell = document.createElement('td');
+            if (data.webDeRegistroDeDiplomadoCursoTallerOEvento && data.webDeRegistroDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const registerLink = createLink(data.webDeRegistroDeDiplomadoCursoTallerOEvento, '✍️ Registro', 'link-button link-button-primary');
+                registerCell.appendChild(registerLink);
+            } else {
+                const emptyLink = createEmptyLink();
+                registerCell.appendChild(emptyLink);
+            }
+            row.appendChild(registerCell);
+
+            // Columna 7: Web de Gracias
+            const thanksCell = document.createElement('td');
+            if (data.webDeGraciasDeDiplomadoCursoTallerOEvento && data.webDeGraciasDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const thanksLink = createLink(data.webDeGraciasDeDiplomadoCursoTallerOEvento, '🙏 Gracias', 'link-button link-button-secondary');
+                thanksCell.appendChild(thanksLink);
+            } else {
+                const emptyLink = createEmptyLink();
+                thanksCell.appendChild(emptyLink);
+            }
+            row.appendChild(thanksCell);
+
+            // Columna 8: Link de Stripe
+            const stripeCell = document.createElement('td');
+            if (data.linkDeStripeDeDiplomadoCursoTallerOEvento && data.linkDeStripeDeDiplomadoCursoTallerOEvento.trim() !== '') {
+                const stripeLink = createLink(data.linkDeStripeDeDiplomadoCursoTallerOEvento, '💳 Pagar', 'link-button link-button-success');
+                stripeCell.appendChild(stripeLink);
+            } else {
+                const emptyLink = createEmptyLink();
+                stripeCell.appendChild(emptyLink);
+            }
+            row.appendChild(stripeCell);
+
+            return row;
+        }
+
+        /**
+         * Crea un elemento para celdas vacías (sin redirección)
+         */
+        function createEmptyLink() {
+            const span = document.createElement('span');
+            span.className = 'empty-cell-link';
+            span.textContent = 'Sin existencia - Solicitar';
+            span.title = 'Favor de notificar por el grupo de la marca';
+            return span;
+        }
+
+        /**
+         * Crea un enlace/botón
+         */
+        function createLink(url, text, className) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.className = className;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = text;
+            return link;
+        }
+
+        /**
+         * Funciones para mostrar/ocultar estados
+         */
+        function showLoading() {
+            loadingState.style.display = 'flex';
+            errorState.style.display = 'none';
+            tableContainer.style.display = 'none';
+        }
+
+        function showError() {
+            loadingState.style.display = 'none';
+            errorState.style.display = 'flex';
+            tableContainer.style.display = 'none';
+        }
+
+        function showTable() {
+            loadingState.style.display = 'none';
+            errorState.style.display = 'none';
+            tableContainer.style.display = 'block';
+        }
+
+        // Event listener para el botón de reintentar
+        retryButton.addEventListener('click', loadData);
+
+        // Cargar datos al iniciar
+        loadData();
+    })();
+</script>
