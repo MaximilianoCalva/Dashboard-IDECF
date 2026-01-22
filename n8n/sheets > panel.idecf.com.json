@@ -1,0 +1,337 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1qWZKWzRUFsz7jh6cTIkGnNq1CmIkw-cezNQte9HwLcw",
+          "mode": "list",
+          "cachedResultName": "IDECF - Alumnos activos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1qWZKWzRUFsz7jh6cTIkGnNq1CmIkw-cezNQte9HwLcw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "panel.idecf.com",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1qWZKWzRUFsz7jh6cTIkGnNq1CmIkw-cezNQte9HwLcw/edit#gid=0"
+        },
+        "options": {}
+      },
+      "name": "Read Student Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -160,
+        -64
+      ],
+      "id": "2711e49d-9d04-4a4d-b726-07fba1a2c674",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "LPf4qZBpPvUSzo8f",
+          "name": "diseno4.impulsomarketing@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        48,
+        -64
+      ],
+      "id": "7c6d37e4-bc7d-40fa-af5d-4362d13d6078",
+      "name": "Loop Rows"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "search": "={{ $json['Correo'] }}"
+        }
+      },
+      "name": "Find WP User by Email",
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -64
+      ],
+      "id": "19ba57ac-bbda-401c-a33f-2060945d5bfb",
+      "credentials": {
+        "wordpressApi": {
+          "id": "1xXke09fv4mOANOE",
+          "name": "https://panel.idecf.com/"
+        }
+      },
+      "continueOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ !!$json.id }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "User Found?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        432,
+        -64
+      ],
+      "id": "5c72d87d-2989-40f6-a5ad-508c7d7a6346"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ ($(\"Loop Rows\").item.json[\"Status\"] || \"\").toLowerCase() }}",
+              "value2": "activo"
+            }
+          ]
+        }
+      },
+      "name": "Check Status",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        624,
+        -64
+      ],
+      "id": "da85c403-6009-4667-b147-f83cf2d85e46"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ \"https://panel.idecf.com/wp-json/wp/v2/users/\" + $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "roles",
+              "value": "={{ [ $(\"Loop Rows\").item.json[\"Rol\"] ] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Update Active Role",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        816,
+        -176
+      ],
+      "id": "f663268f-266e-454c-94b4-322a0015fae0",
+      "credentials": {
+        "wordpressApi": {
+          "id": "1xXke09fv4mOANOE",
+          "name": "https://panel.idecf.com/"
+        }
+      },
+      "continueOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ \"https://panel.idecf.com/wp-json/wp/v2/users/\" + $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "roles",
+              "value": "={{ ['sinpago'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Update Inactive Role",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        816,
+        32
+      ],
+      "id": "e8d1abdd-8939-4dee-8101-fe3bf3830784",
+      "credentials": {
+        "wordpressApi": {
+          "id": "1xXke09fv4mOANOE",
+          "name": "https://panel.idecf.com/"
+        }
+      },
+      "continueOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        -64
+      ],
+      "id": "62e178bb-d532-480e-81ee-cc84f25563d9",
+      "name": "Continue Loop"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -360,
+        -64
+      ],
+      "id": "9bb40cff-0b36-46f9-8862-abef5b2bb50c",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "connections": {
+    "Read Student Status": {
+      "main": [
+        [
+          {
+            "node": "Loop Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Rows": {
+      "main": [
+        [
+          {
+            "node": "Find WP User by Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find WP User by Email": {
+      "main": [
+        [
+          {
+            "node": "User Found?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Found?": {
+      "main": [
+        [
+          {
+            "node": "Check Status",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Continue Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Status": {
+      "main": [
+        [
+          {
+            "node": "Update Active Role",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Inactive Role",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Active Role": {
+      "main": [
+        [
+          {
+            "node": "Continue Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Inactive Role": {
+      "main": [
+        [
+          {
+            "node": "Continue Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continue Loop": {
+      "main": [
+        [
+          {
+            "node": "Loop Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read Student Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3a54f9858961d6a8de3ba4e915ac8d0e4ae80bcd3db7f786bb8f5b77301d8dd3"
+  }
+}

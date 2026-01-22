@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Variables y Reset local para el snippet */
+        .idecf-hub-container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            width: 100%;
+            margin: 0;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .idecf-hub-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .idecf-hub-title {
+            color: #6D0757;
+            font-size: 2em;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .idecf-hub-subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .idecf-modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .idecf-module-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            position: relative;
+            min-height: 280px;
+        }
+
+        .idecf-module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(109, 7, 87, 0.15);
+            border-color: #6D0757;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #6D0757 0%, #8B0969 100%);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .module-icon {
+            font-size: 2.5em;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .module-label {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8B0969;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .module-title {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+
+        .card-btn {
+            margin-top: auto;
+            padding: 10px 20px;
+            background: #fdf2f8;
+            color: #6D0757;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .idecf-module-card:hover .card-btn {
+            background: #6D0757;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .idecf-hub-title {
+                font-size: 1.5em;
+            }
+
+            .idecf-modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="idecf-hub-container">
+        <div class="idecf-hub-header">
+            <h1 class="idecf-hub-title">Diplomado en Terapia Gestalt</h1>
+            <p class="idecf-hub-subtitle">Selecciona una lección para comenzar</p>
+        </div>
+        <div class="idecf-modules-grid">
+            <!-- PYTHON GENERATED CONTENT START -->
+            <a href="https://panel.idecf.com/curso/dtg-leccion-01/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🧠</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 01</span>
+                    <h3 class="module-title">Lección 01</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-02/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">💭</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 02</span>
+                    <h3 class="module-title">Lección 02</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-03/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">💫</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 03</span>
+                    <h3 class="module-title">Lección 03</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-04/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">⚖️</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 04</span>
+                    <h3 class="module-title">Lección 04</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-05/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🌿</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 05</span>
+                    <h3 class="module-title">Lección 05</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-06/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🧩</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 06</span>
+                    <h3 class="module-title">Lección 06</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-07/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🧠</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 07</span>
+                    <h3 class="module-title">Lección 07</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-08/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">💭</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 08</span>
+                    <h3 class="module-title">Lección 08</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-09/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">💫</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 09</span>
+                    <h3 class="module-title">Lección 09</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-10/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">⚖️</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 10</span>
+                    <h3 class="module-title">Lección 10</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-11/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🌿</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 11</span>
+                    <h3 class="module-title">Lección 11</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+            <a href="https://panel.idecf.com/curso/dtg-leccion-12/" class="idecf-module-card">
+                <div class="card-header">
+                    <div class="module-icon">🧩</div>
+                </div>
+                <div class="card-body"><span class="module-label">Lección 12</span>
+                    <h3 class="module-title">Lección 12</h3><span class="card-btn">Ver Lección ➡</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
