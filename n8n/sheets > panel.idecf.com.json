@@ -95,6 +95,31 @@
     },
     {
       "parameters": {
+        "method": "GET",
+        "url": "={{ \"https://panel.idecf.com/wp-json/wp/v2/users/\" + $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "options": {}
+      },
+      "name": "Get Current Roles",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        624,
+        -64
+      ],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "credentials": {
+        "wordpressApi": {
+          "id": "1xXke09fv4mOANOE",
+          "name": "https://panel.idecf.com/"
+        }
+      },
+      "continueOnFail": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
         "conditions": {
           "string": [
             {
@@ -108,45 +133,36 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        624,
+        816,
         -64
       ],
       "id": "da85c403-6009-4667-b147-f83cf2d85e46"
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "={{ \"https://panel.idecf.com/wp-json/wp/v2/users/\" + $json.id }}",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "wordpressApi",
-        "sendBody": true,
-        "contentType": "json",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "roles",
-              "value": "={{ [ $(\"Loop Rows\").item.json[\"Rol\"] ] }}"
-            }
-          ]
-        },
-        "options": {}
+        "jsCode": "// Get current roles from WordPress user\nconst currentRoles = $input.first().json.roles || [];\n\n// Get the role to add from the Google Sheet\nconst roleToAdd = $('Loop Rows').item.json['Rol'];\n\n// Add role if not already present\nlet updatedRoles = [...currentRoles];\nif (!updatedRoles.includes(roleToAdd)) {\n  updatedRoles.push(roleToAdd);\n}\n\n// Remove 'sinpago' if present (student is now active)\nupdatedRoles = updatedRoles.filter(r => r !== 'sinpago');\n\n// Return the user ID and updated roles\nreturn {\n  id: $input.first().json.id,\n  roles: updatedRoles\n};"
       },
-      "name": "Update Active Role",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
+      "name": "Process Active Role",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
-        816,
+        1008,
         -176
       ],
-      "id": "f663268f-266e-454c-94b4-322a0015fae0",
-      "credentials": {
-        "wordpressApi": {
-          "id": "1xXke09fv4mOANOE",
-          "name": "https://panel.idecf.com/"
-        }
+      "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get current roles from WordPress user\nconst currentRoles = $input.first().json.roles || [];\n\n// Get the role to remove from the Google Sheet\nconst roleToRemove = $('Loop Rows').item.json['Rol'];\n\n// Remove the specific role\nlet updatedRoles = currentRoles.filter(r => r !== roleToRemove);\n\n// Add 'sinpago' if not already present\nif (!updatedRoles.includes('sinpago')) {\n  updatedRoles.push('sinpago');\n}\n\n// Return the user ID and updated roles\nreturn {\n  id: $input.first().json.id,\n  roles: updatedRoles\n};"
       },
-      "continueOnFail": true,
-      "alwaysOutputData": true
+      "name": "Process Inactive Role",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1008,
+        32
+      ],
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012"
     },
     {
       "parameters": {
@@ -160,20 +176,20 @@
           "parameters": [
             {
               "name": "roles",
-              "value": "={{ ['sinpago'] }}"
+              "value": "={{ $json.roles }}"
             }
           ]
         },
         "options": {}
       },
-      "name": "Update Inactive Role",
+      "name": "Update User Roles",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        816,
-        32
+        1200,
+        -64
       ],
-      "id": "e8d1abdd-8939-4dee-8101-fe3bf3830784",
+      "id": "d4e5f6a7-b8c9-0123-def0-234567890123",
       "credentials": {
         "wordpressApi": {
           "id": "1xXke09fv4mOANOE",
@@ -188,7 +204,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1008,
+        1392,
         -64
       ],
       "id": "62e178bb-d532-480e-81ee-cc84f25563d9",
@@ -252,7 +268,7 @@
       "main": [
         [
           {
-            "node": "Check Status",
+            "node": "Get Current Roles",
             "type": "main",
             "index": 0
           }
@@ -260,6 +276,17 @@
         [
           {
             "node": "Continue Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Current Roles": {
+      "main": [
+        [
+          {
+            "node": "Check Status",
             "type": "main",
             "index": 0
           }
@@ -270,32 +297,43 @@
       "main": [
         [
           {
-            "node": "Update Active Role",
+            "node": "Process Active Role",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Update Inactive Role",
+            "node": "Process Inactive Role",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Update Active Role": {
+    "Process Active Role": {
       "main": [
         [
           {
-            "node": "Continue Loop",
+            "node": "Update User Roles",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Update Inactive Role": {
+    "Process Inactive Role": {
+      "main": [
+        [
+          {
+            "node": "Update User Roles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update User Roles": {
       "main": [
         [
           {

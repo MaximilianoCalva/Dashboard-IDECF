@@ -29,7 +29,7 @@
                 <div class="flex items-center gap-3 mt-1">
                     <p id="mainDate" class="text-sm text-gray-500 font-medium">📅 --/--/----</p>
                     <span class="text-gray-300">|</span>
-                    <p id="mainDocente" class="text-sm text-[#233878] font-medium">👨‍🏫 --</p>
+                    <p id="mainDocente" class="text-sm text-[#6D0757] font-medium">👨‍🏫 --</p>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="sticky top-0 bg-white p-4 z-10 border-b border-gray-200 shadow-sm">
                 <div class="relative">
                     <input type="text" id="searchInput" placeholder="🔍 Buscar clase..."
-                        class="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-lg border border-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#233878] focus:border-transparent text-sm transition-all"
+                        class="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-lg border border-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6D0757] focus:border-transparent text-sm transition-all"
                         onkeyup="filterPlaylist()">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@
             <!-- Lista de Videos -->
             <div class="playlist-items overflow-y-auto flex-1 custom-scrollbar" id="playlistItems">
                 <div class="p-8 text-center flex flex-col items-center justify-center h-full text-gray-400">
-                    <svg class="animate-spin h-8 w-8 mb-3 text-[#233878]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    <svg class="animate-spin h-8 w-8 mb-3 text-[#6D0757]" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
                         </circle>
@@ -94,7 +94,7 @@
     .playlist-item.active {
         background-color: #eff6ff;
         /* blue-50 */
-        border-left: 4px solid #233878;
+        border-left: 4px solid #6D0757;
     }
 </style>
 
@@ -139,7 +139,6 @@
         }
     }
 
-    // Función auxiliar para extraer ID de URL completa (Solo para miniaturas)
     // Función auxiliar para extraer ID de URL completa (Solo para miniaturas)
     function getVimeoId(url) {
         if (!url) return null;
@@ -190,12 +189,12 @@
                     </div>
                 </div>
                 <div class="flex-1 min-w-0 flex flex-col justify-center py-1">
-                    <div class="text-xs font-semibold text-[#233878] mb-1 opacity-70 flex items-center">
+                    <div class="text-xs font-semibold text-[#6D0757] mb-1 opacity-70 flex items-center">
                         <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         ${video.fecha}
                     </div>
                     <div class="text-xs font-medium text-gray-500 mb-1">👨‍🏫 ${video.profesor || 'Docente no especificado'}</div>
-                    <div class="text-sm font-bold text-gray-700 leading-tight line-clamp-2 group-hover:text-[#233878] transition-colors">${video.titulo}</div>
+                    <div class="text-sm font-bold text-gray-700 leading-tight line-clamp-2 group-hover:text-[#6D0757] transition-colors">${video.titulo}</div>
                 </div>
             `;
             container.appendChild(item);
