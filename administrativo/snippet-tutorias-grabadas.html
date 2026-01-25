@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorías Grabadas - IDECF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="max-w-7xl mx-auto p-6 space-y-8">
+
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Tutorías Grabadas</h1>
+                <p class="text-slate-500 mt-1">Gestión y monitoreo del contenido automatizado</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                    </span>
+                    Sincronización Activa
+                </span>
+                <a href="https://docs.google.com/spreadsheets/d/1JJVVOFBuY6w8ymEQ9pWrFgs3CR7QAQdDfAeqmYG25hA/edit?usp=sharing"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Editar Hoja de Cálculo
+                </a>
+            </div>
+        </header>
+
+        <!-- Logic Explanation Card -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-100 bg-slate-50/50">
+                <h2 class="text-lg font-semibold text-slate-800">Dinámica de Publicación</h2>
+            </div>
+            <div class="p-6 grid md:grid-cols-3 gap-8">
+                <div class="space-y-3">
+                    <div class="h-10 w-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Publicación Inmediata</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Al agregar una nueva fila en el Sheet con los datos del video (Vimeo/YouTube) y título, la
+                        automatización lo publicará en la plataforma.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <div class="h-10 w-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Lectura vía API</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Este panel lee directamente del Google Sheet, mostrando exactamente qué contenidos están
+                        listados para los alumnos.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Actualización en Vivo</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Edita títulos, links o descripciones en el Sheet y los cambios se reflejarán automáticamente en
+                        el portal de alumnos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutorials Table -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200">
+            <!-- Stats Row -->
+            <div class="px-5 pt-5 pb-2">
+                <div
+                    class="bg-purple-50 rounded-lg p-4 border border-purple-100 flex flex-col justify-center items-center">
+                    <div class="text-xs uppercase font-bold text-purple-600 tracking-wider">Total de Tutorías Grabadas
+                    </div>
+                    <div class="text-3xl font-bold text-purple-700 mt-1" id="totalVideosCount">-</div>
+                </div>
+            </div>
+            <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-1">
+                    <h2 class="text-lg font-semibold text-slate-800">Listado de Tutorías</h2>
+                    <div id="statsCounter" class="text-xs text-slate-500 font-medium">Cargando...</div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <!-- Group Filter -->
+                    <div class="relative w-full sm:w-48">
+                        <select id="groupFilter"
+                            class="w-full pl-3 pr-8 py-2 border border-slate-300 rounded-lg text-sm bg-slate-50 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 appearance-none cursor-pointer">
+                            <option value="all">Todos los Grupos</option>
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-slate-500 absolute right-3 top-2.5 pointer-events-none" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="relative w-full sm:w-64">
+                        <input type="text" id="searchInput" placeholder="Buscar por tema, módulo..."
+                            class="pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400 absolute left-3 top-3"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-slate-600">
+                    <thead class="bg-slate-50 text-xs uppercase font-semibold text-slate-500">
+                        <tr>
+                            <th class="px-6 py-4">Grupo / Fecha</th>
+                            <th class="px-6 py-4">Título del Video</th>
+                            <th class="px-6 py-4">Link de Video</th>
+                            <th class="px-6 py-4">Docente / Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tutorialsTableBody" class="divide-y divide-slate-100">
+                        <!-- Loading State -->
+                        <tr>
+                            <td colspan="4" class="px-6 py-8 text-center text-slate-500">
+                                <span
+                                    class="inline-block animate-spin rounded-full h-5 w-5 border-2 border-slate-300 border-t-purple-600 mr-2 align-middle"></span>
+                                Conectando con todas las pestañas del Sheet...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border-t border-slate-100 text-xs text-slate-400 text-center">
+                Mostrando datos consolidados de todas las pestañas del Google Sheet
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURACIÓN
+        // ============================================
+        // ⚠️ PEGAR AQUÍ LA URL DEL WEB APP DE APPS SCRIPT ⚠️
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJpjGGOu2D2BXNxcolgPd7c6zsSApFdNuzB-KvSUPWe0MWVRcWCLLbWgezpxqspnhrqQ/exec';
+        // ============================================
+
+        const tableBody = document.getElementById('tutorialsTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const groupFilter = document.getElementById('groupFilter');
+        const statsCounter = document.getElementById('statsCounter');
+
+        let allTutorialsData = [];
+        let filteredData = []; // Store current filtered list
+        let visibleCount = 50; // Initial load count (Pagination)
+        const BATCH_SIZE = 50; // Items to add on "Load More"
+
+        const CACHE_KEY = `tutorias_cache_${APPS_SCRIPT_URL}`;
+        const CACHE_TTL = 1000 * 60 * 60; // 1 Hour
+
+        async function fetchTutorials() {
+            try {
+                // 1. Check Cache
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    try {
+                        const { timestamp, data } = JSON.parse(cached);
+                        if (Date.now() - timestamp < CACHE_TTL) {
+                            processData(data);
+                            console.log("Loaded from cache");
+                            return;
+                        }
+                    } catch (e) { localStorage.removeItem(CACHE_KEY); }
+                }
+
+                // 2. Network Request
+                if (APPS_SCRIPT_URL.includes('AKfycb...')) throw new Error("URL no configurada");
+
+                const response = await fetch(APPS_SCRIPT_URL);
+                const json = await response.json();
+
+                // Save to Cache
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    timestamp: Date.now(),
+                    data: json.data || json
+                }));
+
+                processData(json.data || json);
+
+            } catch (error) {
+                console.error(error);
+                renderError(error);
+            }
+        }
+
+        function processData(rawData) {
+            let flattened = [];
+
+            // Handle Dictionary Format
+            Object.keys(rawData).forEach(sheetName => {
+                if (Array.isArray(rawData[sheetName])) {
+                    rawData[sheetName].forEach(item => {
+                        item.sheetName = sheetName;
+                        flattened.push(item);
+                    });
+                }
+            });
+
+            // Sort by Date (Newest first)
+            // Assuming date format is dd/MM/yyyy. Converting to comparable.
+            // If date is missing, push to bottom.
+            flattened.sort((a, b) => {
+                const dateA = parseDate(Object.values(a).find(v => v && v.toString().match(/\d{2}\/\d{2}\/\d{4}/)));
+                const dateB = parseDate(Object.values(b).find(v => v && v.toString().match(/\d{2}\/\d{2}\/\d{4}/)));
+                return dateB - dateA;
+            });
+
+            allTutorialsData = flattened;
+
+            if (allTutorialsData.length > 0) {
+                // Update Total Count
+                const totalEl = document.getElementById('totalVideosCount');
+                if (totalEl) totalEl.textContent = allTutorialsData.length;
+
+                populateGroupFilter(allTutorialsData);
+                filterAndRender();
+            } else {
+                renderError({ message: "No se encontraron datos." });
+            }
+        }
+
+        function parseDate(dateStr) {
+            if (!dateStr) return 0;
+            const [d, m, y] = dateStr.split('/');
+            return new Date(`${y}-${m}-${d}`).getTime();
+        }
+
+        function populateGroupFilter(data) {
+            const groups = [...new Set(data.map(item => item.sheetName))].sort();
+            groupFilter.innerHTML = '<option value="all">Todos los Grupos</option>';
+            groups.forEach(group => {
+                const option = document.createElement('option');
+                option.value = group;
+                option.textContent = group;
+                groupFilter.appendChild(option);
+            });
+        }
+
+        function filterAndRender() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedGroup = groupFilter.value;
+
+            // Reset pagination on new filter
+            visibleCount = BATCH_SIZE;
+
+            filteredData = allTutorialsData.filter(item => {
+                if (selectedGroup !== 'all' && item.sheetName !== selectedGroup) return false;
+                const vals = Object.values(item).map(v => v ? v.toString().toLowerCase() : '').join(' ');
+                return vals.includes(searchTerm);
+            });
+
+            renderTable();
+            updateStats();
+        }
+
+        function loadMore() {
+            visibleCount += BATCH_SIZE;
+            renderTable();
+        }
+
+        function updateStats() {
+            statsCounter.textContent = `Mostrando ${Math.min(visibleCount, filteredData.length)} de ${filteredData.length} videos`;
+        }
+
+        function renderTable() {
+            tableBody.innerHTML = '';
+
+            if (filteredData.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="4" class="px-6 py-12 text-center text-slate-400">No se encontraron videos con estos filtros.</td></tr>';
+                return;
+            }
+
+            const dataToShow = filteredData.slice(0, visibleCount);
+
+            dataToShow.forEach(item => {
+                // Robust key finding
+                const findKey = (obj, keyword) => Object.keys(obj).find(k => k.toLowerCase().includes(keyword.toLowerCase()));
+
+                const sheetGroup = item.sheetName || 'General';
+                const title = item[findKey(item, 'Titulo')] || item[findKey(item, 'Tema')] || '-';
+                const dateVal = item[findKey(item, 'Fecha')] || '';
+                const video = item[findKey(item, 'Video')] || item[findKey(item, 'Vimeo')] || '';
+                const teacher = item[findKey(item, 'Docente')] || item[findKey(item, 'Profesor')] || '-';
+
+                // Video Button Logic
+                let videoDisplay = '<span class="text-slate-400 text-xs">No disponible</span>';
+                if (video && (video.includes('http') || video.includes('vimeo'))) {
+                    videoDisplay = `<a href="${video}" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-md text-xs font-medium transition-colors border border-purple-100">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        Ver Clase
+                    </a>`;
+                } else if (video) {
+                    videoDisplay = `<span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded">${video}</span>`;
+                }
+
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-slate-50 transition-colors group';
+                row.innerHTML = `
+                    <td class="px-6 py-4">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold text-slate-700 bg-slate-200/50 px-2 py-0.5 rounded w-fit mb-1">${sheetGroup}</span>
+                            <span class="text-xs text-slate-400">${dateVal}</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-slate-900 line-clamp-2" title="${title}">${title}</div>
+                    </td>
+                    <td class="px-6 py-4">${videoDisplay}</td>
+                    <td class="px-6 py-4 text-sm text-slate-500">
+                         <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-100">
+                            ${teacher}
+                        </span>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            // "Load More" row
+            if (filteredData.length > visibleCount) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="4" class="px-6 py-4 text-center">
+                        <button onclick="loadMore()" class="text-xs font-bold text-purple-600 hover:text-purple-700 uppercase tracking-wide px-4 py-2 border border-purple-200 rounded-full hover:bg-purple-50 transition-colors">
+                            Cargar más videos (+${filteredData.length - visibleCount} restantes)
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            }
+        }
+
+        function renderError(error) {
+            tableBody.innerHTML = `
+                <tr><td colspan="4" class="px-6 py-8 text-center">
+                    <div class="text-amber-600 font-medium mb-1">No se pudieron cargar los datos</div>
+                    <div class="text-xs text-slate-500">${error.message}</div>
+                    <div class="mt-4 p-3 bg-slate-100 rounded text-xs text-left max-w-md mx-auto overflow-auto font-mono">
+                        <strong>Setup (Legacy Compatible):</strong><br>
+                        1. Actualiza el Apps Script con el código "UNIVERSAL LEGACY COMPATIBLE"<br>
+                        2. Despliega como Web App (Versión Nueva)<br>
+                        3. Pega la URL aquí.
+                    </div>
+                </td></tr>`;
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', filterAndRender);
+        groupFilter.addEventListener('change', filterAndRender);
+
+        // Init
+        fetchTutorials();
+    </script>
+</body>
+
+</html>

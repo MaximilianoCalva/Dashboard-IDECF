@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Contenidos - IDECF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="max-w-7xl mx-auto p-6 space-y-8" x-data="contentMap()">
+
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Mapa de Contenidos</h1>
+                <p class="text-slate-500 mt-1">Gestión curricular y actualización de módulos</p>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div x-show="selectedSheetUrl" class="hidden md:block">
+                    <a :href="selectedSheetUrl" target="_blank"
+                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded-lg transition-colors shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                        Ver Hoja de Cálculo
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="w-full md:w-96">
+                <!-- ... label code ... -->
+                <div class="relative">
+                    <select id="courseSelect" x-model="selectedCourseUrl" @change="loadCourse()"
+                        class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg shadow-sm bg-white text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none cursor-pointer">
+                        <option value="" disabled selected>Elige un Diplomado...</option>
+
+                        <!-- CONFIGURACIÓN DE CURSOS -->
+                        <option
+                            data-sheet="https://docs.google.com/spreadsheets/d/1hEsyyTPVU3w4VTcGOOVGPpWjr8xKSFMbr1Dh-ipaaPg/edit?usp=sharing"
+                            value="https://script.google.com/macros/s/AKfycbwHvRtw27l9h7dkJ4yEcG55ecdw-Fsg_DEFxR_kMS0zvdXvitv3agCmhTY-fnuDsqQuew/exec">
+                            Diplomado en Constelaciones Familiares</option>
+                        <option
+                            data-sheet="https://docs.google.com/spreadsheets/d/17v9SOXL-aaXk1gE73Sd9Y-0YcS4tHmjQxibK-WbNdjM/edit?usp=sharing"
+                            value="https://script.google.com/macros/s/AKfycbzcQiVSqslIV8syT4XD1XOT4M1VbCo9KhoqgvEENPHIlK8fmtmG0GJO-GFVh2WRHq0r/exec">
+                            Diplomado en Terapia Gestalt</option>
+                        <!-- FIN CONFIGURACIÓN -->
+
+                    </select>
+                    <!-- ... icon ... -->
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Loading State -->
+            <div x-show="isLoading" class="py-20 text-center">
+                <span
+                    class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-blue-600 align-middle"></span>
+                <p class="mt-4 text-slate-500 font-medium animate-pulse">Cargando mapa curricular...</p>
+            </div>
+
+            <!-- Error State -->
+            <div x-show="error" x-cloak
+                class="bg-red-50 border border-red-100 rounded-xl p-6 text-center max-w-2xl mx-auto">
+                <h3 class="text-red-800 font-semibold mb-2">No se pudieron cargar los datos</h3>
+                <p class="text-red-600 text-sm mb-4" x-text="error"></p>
+                <div
+                    class="bg-white p-4 rounded-lg border border-red-100 text-left text-xs font-mono text-slate-600 overflow-auto">
+                    <strong>Configuración Requerida:</strong><br>
+                    1. Abre el Google Sheet del Diplomado.<br>
+                    2. Extensiones > Apps Script.<br>
+                    3. Pega el código "UNIVERSAL SHEET TO JSON (MULTI-TAB)".<br>
+                    4. Implementar > Nueva Implementación > Web App > Acceso: "Cualquier usuario".<br>
+                    5. Pega la URL generada en la variable <code>APPS_SCRIPT_URL</code> en este archivo HTML.
+                </div>
+            </div>
+
+            <!-- Content Display -->
+            <div x-show="!isLoading && !error && courseData" x-cloak class="space-y-6">
+
+                <!-- Stats / Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Status Card -->
+                    <div
+                        class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center gap-3">
+                        <span class="flex h-3 w-3 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-sm font-medium text-slate-700">Conectado a Google Sheets</span>
+                    </div>
+
+                    <!-- Modules Card -->
+                    <div
+                        class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex flex-col items-center justify-center">
+                        <div class="text-xs font-bold text-blue-600 uppercase tracking-wide">Total Módulos</div>
+                        <div class="text-2xl font-bold text-blue-700 mt-1"
+                            x-text="Object.keys(courseData || {}).length">0</div>
+                    </div>
+
+                    <!-- Lessons Card -->
+                    <div
+                        class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 flex flex-col items-center justify-center">
+                        <div class="text-xs font-bold text-indigo-600 uppercase tracking-wide">Total Lecciones</div>
+                        <div class="text-2xl font-bold text-indigo-700 mt-1"
+                            x-text="Object.values(courseData || {}).reduce((acc, curr) => acc + (Array.isArray(curr) ? curr.length : 0), 0)">
+                            0</div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <template x-for="(rows, sheetName) in courseData" :key="sheetName">
+                        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-blue-300 transition-colors"
+                            x-data="{ expanded: false }">
+                            <button @click="expanded = !expanded"
+                                class="w-full flex items-center justify-between p-5 bg-slate-50/50 hover:bg-slate-50 transition-colors text-left">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="h-10 w-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg shadow-sm">
+                                        <span x-text="sheetName.charAt(0).toUpperCase()"></span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-800 text-lg" x-text="sheetName"></h3>
+                                        <p class="text-xs text-slate-500 mt-0.5"><span x-text="rows.length"></span>
+                                            lecciones</p>
+                                    </div>
+                                </div>
+                                <div :class="{'rotate-180': expanded}"
+                                    class="transition-transform duration-200 text-slate-400">
+                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </button>
+
+                            <div x-show="expanded" x-collapse>
+                                <div class="border-t border-slate-100">
+                                    <template x-if="rows.length === 0">
+                                        <div class="p-8 text-center text-slate-400 italic text-sm">Este módulo está
+                                            vacío en el Sheet.</div>
+                                    </template>
+
+                                    <div class="divide-y divide-slate-100">
+                                        <template x-for="item in rows">
+                                            <div
+                                                class="p-5 hover:bg-slate-50/80 transition-colors flex flex-col md:flex-row gap-4">
+                                                <div class="md:w-1/4 min-w-[120px]">
+                                                    <span
+                                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-600">
+                                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
+                                                            stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                        Lección
+                                                    </span>
+                                                    <div class="mt-2 text-xs text-slate-400 font-mono text-ellipsis overflow-hidden"
+                                                        x-text="findVal(item, ['fecha', 'date', 'formato', 'numero'])">
+                                                    </div>
+                                                </div>
+                                                <div class="md:w-2/4 flex-grow">
+                                                    <h4 class="font-semibold text-slate-900 leading-snug"
+                                                        x-text="findVal(item, ['tema', 'titulo', 'title', 'nombre']) || 'Sin Título'">
+                                                    </h4>
+                                                    <p class="text-sm text-slate-500 mt-1 leading-relaxed"
+                                                        x-text="findVal(item, ['descripcion', 'desc', 'detalles']) || ''">
+                                                    </p>
+                                                </div>
+                                                <div class="md:w-1/4 flex flex-col gap-2 justify-center items-end">
+                                                    <template x-if="findVal(item, ['video', 'vimeo', 'link', 'url'])">
+                                                        <a :href="findVal(item, ['video', 'vimeo', 'link', 'url'])"
+                                                            target="_blank"
+                                                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors text-center">
+                                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                                                stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2"
+                                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                            </svg>
+                                                            Ver Recurso
+                                                        </a>
+                                                    </template>
+                                                    <template x-if="findVal(item, ['material', 'pdf', 'archivo'])">
+                                                        <a :href="findVal(item, ['material', 'pdf', 'archivo'])"
+                                                            target="_blank"
+                                                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-lg transition-colors text-center">
+                                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                                                stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2"
+                                                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                            </svg>
+                                                            Material Extra
+                                                        </a>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        function contentMap() {
+            return {
+                selectedCourseUrl: '',
+                selectedSheetUrl: '',
+                courseData: null,
+                isLoading: false,
+                error: null,
+
+                async loadCourse() {
+                    if (!this.selectedCourseUrl) return;
+
+                    // Get Sheet URL from data attribute
+                    const select = document.getElementById('courseSelect');
+                    const option = select.options[select.selectedIndex];
+                    this.selectedSheetUrl = option.getAttribute('data-sheet') || '';
+
+                    if (this.selectedCourseUrl.includes('URL_')) {
+                        // ... error logic ...
+                        this.error = "Esta opción aún no tiene configurada la URL del Apps Script. Edita el HTML y reemplaza 'URL_...' por el link del Web App.";
+                        this.courseData = null;
+                        return;
+                    }
+
+                    this.isLoading = true;
+                    this.error = null;
+                    this.courseData = null;
+
+                    try {
+                        const cacheKey = `map_cache_${this.selectedCourseUrl}`;
+                        const cached = localStorage.getItem(cacheKey);
+                        if (cached) {
+                            const { timestamp, data } = JSON.parse(cached);
+                            if (Date.now() - timestamp < 1000 * 60 * 30) {
+                                this.courseData = data;
+                                this.isLoading = false;
+                                return;
+                            }
+                        }
+
+                        const response = await fetch(this.selectedCourseUrl);
+                        const json = await response.json();
+                        const finalData = json.data || json;
+
+                        if (typeof finalData !== 'object' || Array.isArray(finalData)) {
+                            if (Array.isArray(finalData)) {
+                                this.courseData = { "Contenido General": finalData };
+                            } else {
+                                this.courseData = finalData;
+                            }
+                        } else {
+                            this.courseData = finalData;
+                        }
+
+                        localStorage.setItem(cacheKey, JSON.stringify({
+                            timestamp: Date.now(),
+                            data: this.courseData
+                        }));
+
+                    } catch (e) {
+                        console.error(e);
+                        this.error = "Error conectando con Google Sheets: " + e.message;
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
+
+                findVal(obj, keys) {
+                    if (!obj) return null;
+                    const foundKey = Object.keys(obj).find(k => keys.some(search => k.toLowerCase().includes(search.toLowerCase())));
+                    return foundKey ? obj[foundKey] : null;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
