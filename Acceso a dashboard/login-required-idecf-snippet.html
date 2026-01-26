@@ -71,7 +71,93 @@
             <circle cx="12" cy="7" r="4"></circle>
         </svg>
     </div>
-    <h2>Iniciar Sesión</h2>
-    <p>Por favor inicie sesión para acceder al portal de cliente.</p>
-    <a href="https://panel.idecf.com/panel-access/" class="btn-action">Iniciar Sesión</a>
+    <h2>Bienvenido</h2>
+    <p style="margin-bottom: 20px;">Inicia sesión o regístrate para acceder al contenido.</p>
+
+    <div class="idecf-tabs">
+        <button class="idecf-tab-btn active" onclick="switchIdecfTab('login', this)">Iniciar Sesión</button>
+        <button class="idecf-tab-btn" onclick="switchIdecfTab('register', this)">Registro</button>
+    </div>
+
+    <div id="idecf-tab-login" class="idecf-tab-content active" style="text-align: left;">
+        [user_registration_login]
+    </div>
+
+    <div id="idecf-tab-register" class="idecf-tab-content" style="text-align: left;">
+        [user_registration_form id="15447"]
+    </div>
 </div>
+
+<style>
+    .idecf-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .idecf-tab-btn {
+        background: none;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6b7280;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .idecf-tab-btn.active {
+        color: #6D0757;
+    }
+
+    .idecf-tab-btn:hover {
+        color: #6D0757;
+    }
+
+    .idecf-tab-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #6D0757;
+    }
+
+    .idecf-tab-content {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .idecf-tab-content.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    function switchIdecfTab(tabName, btn) {
+        var container = btn.closest('.idecf-login-required');
+        var contents = container.querySelectorAll('.idecf-tab-content');
+        var buttons = container.querySelectorAll('.idecf-tab-btn');
+
+        contents.forEach(function (el) { el.classList.remove('active'); });
+        buttons.forEach(function (el) { el.classList.remove('active'); });
+
+        container.querySelector('#idecf-tab-' + tabName).classList.add('active');
+        btn.classList.add('active');
+    }
+</script>

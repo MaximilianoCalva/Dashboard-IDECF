@@ -65,9 +65,131 @@
         <p>Instituto Internacional de Constelaciones Familiares</p>
     </div>
     <div class="login-body">
-        <p class="login-instructions">
-            Ingresa tu correo y contraseña para acceder a tu dashboard
-        </p>
-        [profilepress-login id="1"]
+        <div class="idecf-tabs">
+            <button class="idecf-tab-btn active" onclick="switchIdecfLogoutTab('login', this)">Iniciar Sesión</button>
+            <button class="idecf-tab-btn" onclick="switchIdecfLogoutTab('register', this)">Registro</button>
+        </div>
+
+        <div id="idecf-logout-tab-login" class="idecf-tab-content active">
+            <p style="text-align: center; color: #6b7280; margin-bottom: 20px; font-size: 15px;">
+                Ingresa tu correo y contraseña para acceder a tu dashboard.
+            </p>
+            [user_registration_login]
+        </div>
+
+        <div id="idecf-logout-tab-register" class="idecf-tab-content">
+            <p style="text-align: center; color: #6b7280; margin-bottom: 20px; font-size: 15px;">
+                Regístrate para crear una nueva cuenta.
+            </p>
+            [user_registration_form id="15447"]
+        </div>
     </div>
 </div>
+
+<style>
+    .idecf-logout-form {
+        background: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(109, 7, 87, 0.15);
+        max-width: 450px;
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .idecf-logout-form .login-header {
+        background: linear-gradient(135deg, #6D0757 0%, #8E0970 100%);
+        padding: 40px 30px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-header p {
+        font-size: 14px;
+        opacity: 0.9;
+        color: #FFFFFF;
+    }
+
+    .idecf-logout-form .login-body {
+        padding: 40px 30px;
+    }
+
+    .idecf-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .idecf-tab-btn {
+        background: none;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6b7280;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .idecf-tab-btn.active {
+        color: #6D0757;
+    }
+
+    .idecf-tab-btn:hover {
+        color: #6D0757;
+    }
+
+    .idecf-tab-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #6D0757;
+    }
+
+    .idecf-tab-content {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .idecf-tab-content.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    function switchIdecfLogoutTab(tabName, btn) {
+        var container = btn.closest('.idecf-logout-form');
+        var contents = container.querySelectorAll('.idecf-tab-content');
+        var buttons = container.querySelectorAll('.idecf-tab-btn');
+
+        contents.forEach(function (el) { el.classList.remove('active'); });
+        buttons.forEach(function (el) { el.classList.remove('active'); });
+
+        container.querySelector('#idecf-logout-tab-' + tabName).classList.add('active');
+        btn.classList.add('active');
+    }
+</script>
