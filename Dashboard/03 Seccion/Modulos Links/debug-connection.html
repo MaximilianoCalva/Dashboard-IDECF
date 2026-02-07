@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Conexión IDECF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-2xl font-bold mb-4">Prueba de Conexión</h1>
+
+        <div class="mb-4">
+            <h2 class="font-bold">1. Constelaciones 1er Plan</h2>
+            <button
+                onclick="testConnection('https://script.google.com/macros/s/AKfycbxd824DfbIt8dMrOQIvAECFzdlWY0WytQV0mXYqEvaNncUIk3IgkqROKKAmmOkYHSl0Pg/exec', 'constelaciones1')"
+                class="bg-blue-500 text-white px-4 py-2 rounded">Probar Conexión</button>
+            <div id="result-constelaciones1" class="mt-2 text-sm bg-gray-50 p-2 rounded border">Esperando...</div>
+        </div>
+
+        <div class="mb-4">
+            <h2 class="font-bold">2. Constelaciones 2do Plan</h2>
+            <button
+                onclick="testConnection('https://script.google.com/macros/s/AKfycbywPOAfdzCwZt2f8Dk_-nJ8YYHT3ig6JH-v1vmwte4N6TIcJ0Gb0kA5aVF-v0ydXnnuVg/exec', 'constelaciones2')"
+                class="bg-blue-500 text-white px-4 py-2 rounded">Probar Conexión</button>
+            <div id="result-constelaciones2" class="mt-2 text-sm bg-gray-50 p-2 rounded border">Esperando...</div>
+        </div>
+
+        <script>
+            async function testConnection(url, course) {
+                const resultDiv = document.getElementById('result-' + course);
+                resultDiv.innerHTML = "Conectando...";
+                resultDiv.className = "mt-2 text-sm bg-yellow-50 p-2 rounded border text-yellow-700";
+
+                try {
+                    const fullUrl = `${url}?type=aulatv&course=${course}&module=1`;
+                    console.log("Fetching: " + fullUrl);
+
+                    const response = await fetch(fullUrl);
+                    const text = await response.text();
+
+                    try {
+                        const json = JSON.parse(text);
+                        if (json.error) {
+                            resultDiv.innerHTML = "✅ Conexión Exitosa, pero Script devolvió error: " + json.error;
+                            resultDiv.className = "mt-2 text-sm bg-red-100 p-2 rounded border text-red-700";
+                        } else {
+                            resultDiv.innerHTML = "✅ ÉXITO TOTAL. Datos recibidos: " + JSON.stringify(json).slice(0, 100) + "...";
+                            resultDiv.className = "mt-2 text-sm bg-green-100 p-2 rounded border text-green-700";
+                        }
+                    } catch (e) {
+                        // If it's HTML (like a login page or error page)
+                        if (text.includes("Google Accounts") || text.includes("Sign in")) {
+                            resultDiv.innerHTML = "❌ ERROR: Requiere Inicio de Sesión. (Revisa 'Who has access' sea 'Anyone')";
+                        } else {
+                            resultDiv.innerHTML = "⚠️ Respuesta recibida pero no es JSON: " + text.slice(0, 50);
+                        }
+                        resultDiv.className = "mt-2 text-sm bg-red-100 p-2 rounded border text-red-700";
+                    }
+
+                } catch (error) {
+                    resultDiv.innerHTML = "❌ FALLO DE CONEXIÓN (CORS/RED): " + error.message;
+                    resultDiv.className = "mt-2 text-sm bg-red-100 p-2 rounded border text-red-700 font-bold";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
